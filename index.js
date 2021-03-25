@@ -10,7 +10,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if(user != null){
 
       var email_id = user.email;
-      document.getElementById("user_para").innerHTML = "使用者 : " + email_id + \n +" 您已經登入";
+      document.getElementById("user_para").innerHTML = "使用者 : " + email_id +" 您已經登入";
 
     }
 
