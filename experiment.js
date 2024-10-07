@@ -32,7 +32,7 @@ function nextTrial() {
 var welcome = {
   type: jsPsychHtmlKeyboardResponse, // 隨便找一個type 但是不給他choices就好
   choices: "NO_KEYS",
-  stimulus: "<p>本實驗不會使用到鍵盤，請使用滑鼠點擊任意地方繼續<\p>請使用電腦施測，不要使用手機",
+  stimulus: '<h2><p>此為預覽版本<\p><\h2> <p>本實驗不會使用到鍵盤，請使用滑鼠點擊任意地方繼續<\p>請使用電腦施測，不要使用手機',
   on_load: function() {
     document.body.addEventListener('click', nextTrial);
   },
@@ -388,7 +388,7 @@ var debrief_block = {
 var end = {
   type: jsPsychHtmlKeyboardResponse, // 隨便找一個type 但是不給他choices就好
   choices: "NO_KEYS",
-  stimulus: "結束了，謝謝你的作答",
+  stimulus: "<p>結束了，謝謝你的作答<\p>此為預覽版本",
   on_load: function() {
     document.body.addEventListener('click', nextTrial);
   },
