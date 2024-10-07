@@ -1,4 +1,5 @@
 /*init*/
+console.log("尚未付費，僅供預覽，請勿盜用")
 var jsPsych = initJsPsych({
   on_finish: function() {
     jsPsych.data.displayData();
