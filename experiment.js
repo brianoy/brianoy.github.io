@@ -4,7 +4,7 @@ console.log("尚未付費，僅供預覽，請勿盜用")
 
 function upload_to_gs(roundDurations){
   // 將資料發送到 Google Sheets
-  fetch('https://script.google.com/macros/s/AKfycbz44o0r4rrsEIYcl5sfFdFL9P2oxYJmIM6eGVbFeEDgeylgt-vhr8TnGF5PqrbhcyVe-Q/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbwt8yHSXka_UP8xASIXki8c99X70yJGAN-yGzBtiQ8PL4q07fGL2mRALgSuO_EPuUDtWg/exec', {
     method: 'POST',
     body: JSON.stringify(roundDurations), // 將資料轉換成 JSON 格式
     headers: {
