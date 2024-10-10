@@ -1,8 +1,43 @@
 /*init*/
 console.log("尚未付費，僅供預覽，請勿盜用")
+
+
+function upload_to_gs(roundDurations){
+  // 將資料發送到 Google Sheets
+  fetch('https://script.google.com/macros/s/AKfycbz44o0r4rrsEIYcl5sfFdFL9P2oxYJmIM6eGVbFeEDgeylgt-vhr8TnGF5PqrbhcyVe-Q/exec', {
+    method: 'POST',
+    body: JSON.stringify(roundDurations), // 將資料轉換成 JSON 格式
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
 var jsPsych = initJsPsych({
+  // timeline: timeline,
+  // show_progress_bar: true, // 需要progress bar嗎?
   on_finish: function() {
-    jsPsych.data.displayData();
+    jsPsych.data.displayData('csv');
+    // jsPsychSheet.uploadData(jsPsych.data.get().csv());
+    var finish_data_json = jsPsych.data.get() // json
+    var finish_data_csv  = jsPsych.data.get().csv() // json
+    console.log(finish_data_csv);
+    var timeElapsedData = finish_data_json.select('time_elapsed').values; // 提取 time_elapsed 欄位
+    // 創建一個新的陣列，來存儲每個回合所花費的時間
+    let roundDurations = [];
+
+    // 計算每個回合的持續時間
+    for (let i = 1; i < timeElapsedData.length; i++) {
+        let duration = timeElapsedData[i] - timeElapsedData[i - 1];  // 當前時間點 - 上一個時間點
+        roundDurations.push(duration);
+    }
+
+    // 顯示每個回合所花費的時間
+    console.log(roundDurations);
+    upload_to_gs(roundDurations)
   },
 });
 
@@ -104,7 +139,7 @@ function updateSliderValue() {
   display.innerHTML = slider.value; // 初始顯示值
 
   // 當滑動條變動時，更新顯示的數字
-  slider.addEventListener('input', function() {
+  slider.addEventListener('click', function() {
     display.innerHTML = slider.value;
     current_slider_value = slider.value;
   });
@@ -303,7 +338,7 @@ var invest_rich_results = {
   },
   choices: "NO_KEYS",
   stimulus: '<p>夥伴回饋給您：<span id="reward_value">0</span><\p><p><\p><p><\p><p><\p><p>您的金額：<span id="your_money">0</span><\p><p>他的金額：<span id="his_money">0</span><\p>',
-  trial_duration: 1000
+  trial_duration: 2000
 };
 
 /**
@@ -320,7 +355,7 @@ var invest_poor_results = {
   },
   choices: "NO_KEYS",
   stimulus: '<p>夥伴回饋給您：<span id="reward_value">0</span><\p><p><\p><p><\p><p><\p><p>您的金額：<span id="your_money">0</span><\p><p>他的金額：<span id="his_money">0</span><\p>',
-  trial_duration: 1000
+  trial_duration: 2000
 };
 
 
@@ -411,7 +446,7 @@ timeline.push(welcome);
 timeline.push(invest_game_ready);
 timeline.push(part1_loop_rich);
 timeline.push(part1_loop_poor);
-timeline.push(part1_loop_rich);
+// timeline.push(part1_loop_rich);
 timeline.push(end);
 
 jsPsych.run(timeline);
