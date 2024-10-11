@@ -1,15 +1,15 @@
 /*init*/
 console.log("尚未付費，僅供預覽，請勿盜用")
-
+var upload_url = "https://script.google.com/macros/s/AKfycbxUWMbFmIYcRZEhnt0By9FXuC4FPmuzR9_VLFQVAvhzOy6oL8zGIM9PIp56N1KulzCA4g/exec"
 
 function upload_to_gs(roundDurations){
   // 將資料發送到 Google Sheets
-  fetch('https://script.google.com/macros/s/AKfycbwt8yHSXka_UP8xASIXki8c99X70yJGAN-yGzBtiQ8PL4q07fGL2mRALgSuO_EPuUDtWg/exec', {
+  fetch(upload_url, {
     redirect: "follow",
     method: 'POST',
     body: JSON.stringify(roundDurations), // 將資料轉換成 JSON 格式
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "text/plain;charset=utf-8",
     },
   })
     .then(response => response.text())
@@ -425,12 +425,15 @@ var end = {
   type: jsPsychHtmlKeyboardResponse, // 隨便找一個type 但是不給他choices就好
   choices: "NO_KEYS",
   stimulus: "<p>結束了，謝謝你的作答<\p>此為預覽版本",
+  trial_duration: 1000
+  /*
   on_load: function() {
     document.body.addEventListener('click', nextTrial);
   },
   on_finish: function() {
       document.body.removeEventListener('click', nextTrial);
   }
+      */
 };
 
 
