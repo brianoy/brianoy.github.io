@@ -2,6 +2,16 @@
 console.log("尚未付費，僅供預覽，請勿盜用")
 var upload_url = "https://script.google.com/macros/s/AKfycbxUWMbFmIYcRZEhnt0By9FXuC4FPmuzR9_VLFQVAvhzOy6oL8zGIM9PIp56N1KulzCA4g/exec"
 
+function tag_time(){
+  var currentTime = new Date();
+  var formattedTime = currentTime.getFullYear() + '/' + 
+                      (currentTime.getMonth() + 1) + '/' + 
+                      currentTime.getDate() + ' ' + 
+                      currentTime.getHours() + ':' + 
+                      (currentTime.getMinutes().toString().padStart(2, '0'));
+  return formattedTime
+}
+
 function upload_to_gs(roundDurations){
   // 將資料發送到 Google Sheets
   fetch(upload_url, {
@@ -22,9 +32,10 @@ var jsPsych = initJsPsych({
   // show_progress_bar: true, // 需要progress bar嗎?
   on_finish: function() {
     jsPsych.data.displayData('csv');
+    jsPsych.data.get().localSave
     // jsPsychSheet.uploadData(jsPsych.data.get().csv());
     var finish_data_json = jsPsych.data.get() // json
-    var finish_data_csv  = jsPsych.data.get().csv() // json
+    var finish_data_csv  = jsPsych.data.get().csv() // csv
     console.log(finish_data_csv);
     var timeElapsedData = finish_data_json.select('time_elapsed').values; // 提取 time_elapsed 欄位
     // 創建一個新的陣列，來存儲每個回合所花費的時間
@@ -37,8 +48,11 @@ var jsPsych = initJsPsych({
     }
 
     // 顯示每個回合所花費的時間
-    console.log(roundDurations);
+    console.log(roundDurations)
+    roundDurations.unshift(tag_time())
+    
     upload_to_gs(roundDurations)
+    
   },
 });
 
