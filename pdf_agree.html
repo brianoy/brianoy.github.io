@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同意書</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        #pdf-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: #525659;
+            padding: 20px 0;
+        }
+
+        #pdf-viewer {
+            background-color: white;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .consent-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+
+        #pdf-controls {
+            text-align: center;
+            margin: 10px 0;
+            user-select: none;
+        }
+
+        #pdf-controls button {
+            margin: 0 5px;
+            background-color: #444;
+        }
+
+        #download-btn {
+            background-color: #1a73e8;
+        }
+
+        #page-num {
+            margin: 0 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>同意書</h1>
+    
+    <!-- PDF 顯示區域 -->
+    <div id="pdf-container">
+        <div id="pdf-controls">
+            <button id="prev">上一頁</button>
+            <span id="page-num"></span>
+            <button id="next">下一頁</button>
+            <button id="download-btn">下載同意書</button>
+        </div>
+        <canvas id="pdf-viewer"></canvas>
+    </div>
+    
+    <!-- 同意區段 -->
+    <div class="consent-section">
+        <h2>請確認以下事項</h2>
+        <div class="checkbox-container">
+            <input type="checkbox" id="consent-checkbox" onchange="updateSubmitButton()">
+            <label for="consent-checkbox">我已閱讀並同意以上所有條款</label>
+        </div>
+        <div class="error-message" id="error-message">請先閱讀並同意所有條款</div>
+        <button id="submit-button" onclick="submitForm()" disabled>確認送出</button>
+    </div>
+
+    <script>
+        // 配置 PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.5;
+        const canvas = document.getElementById('pdf-viewer');
+        const ctx = canvas.getContext('2d');
+        const PDF_URL = 'e.pdf'; // 預設 PDF 檔案路徑
+
+        // 載入 PDF
+        pdfjsLib.getDocument(PDF_URL).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page-num').textContent = 
+                `第 ${pageNum} 頁，共 ${pdfDoc.numPages} 頁`;
+            
+            // 初始渲染第一頁
+            renderPage(pageNum);
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            alert('PDF 載入失敗，請確認檔案路徑是否正確');
+        });
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function(page) {
+                // 計算適合的縮放比例
+                const viewport = page.getViewport({scale: 1.0});
+                const containerWidth = document.getElementById('pdf-container').clientWidth - 40; // 減去padding
+                scale = containerWidth / viewport.width;
+                
+                // 使用新的縮放比例創建viewport
+                const scaledViewport = page.getViewport({scale: scale});
+                
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: scaledViewport
+                };
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page-num').textContent = 
+                `第 ${num} 頁，共 ${pdfDoc.numPages} 頁`;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+
+        // 下載 PDF 功能
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = PDF_URL;
+            link.download = 'e.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        document.getElementById('prev').addEventListener('click', onPrevPage);
+        document.getElementById('next').addEventListener('click', onNextPage);
+
+        // 監聽視窗大小變化
+        window.addEventListener('resize', function() {
+            if (pdfDoc) {
+                renderPage(pageNum);
+            }
+        });
+
+        function updateSubmitButton() {
+            const checkbox = document.getElementById('consent-checkbox');
+            const submitButton = document.getElementById('submit-button');
+            const errorMessage = document.getElementById('error-message');
+            
+            submitButton.disabled = !checkbox.checked;
+            errorMessage.style.display = checkbox.checked ? 'none' : 'block';
+        }
+
+        function submitForm() {
+            const checkbox = document.getElementById('consent-checkbox');
+            if (checkbox.checked) {
+                alert('表單已成功送出！');
+            } else {
+                alert('請先勾選同意項目');
+            }
+        }
+    </script>
+</body>
+</html>
