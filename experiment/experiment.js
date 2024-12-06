@@ -1,7 +1,7 @@
 // 設定秒數，如果是debug的時候可以更改true或false來讓實驗秒數少一點
 
 // var time_settings = [階段,遊戲畫面,回饋畫面計算中，回饋金額顯示,專注點0.8秒,專注點0.2秒,下一位夥伴提示語,情緒評級作業指導語,懸浮視窗5分鐘];
-if(false){ // normal mode
+if(true){ // normal mode
   var time_settings = [3000,20000,2000,5000,800,200,5000,60000,300000,600000];
 }
 else{ // debug mode
