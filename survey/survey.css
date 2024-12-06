@@ -1,0 +1,483 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20;
+    transition: all 0.5s ease-in-out;
+}
+.hide{
+    display: none;
+}
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.survey-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 1em;
+    border: 3px dashed #ccc;
+    padding: 10px;
+}
+/*
+.instruction{
+    border-left: 4px solid #007acc;
+    background-color: #f1f8ff;
+    line-height: 1;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+}
+*/
+.notice , .instruction{
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    border-radius: 0 5px 5px 0;
+    font-size: 1em;
+    margin: 5px;
+    color: #666;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+tr:hover{
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+hr {
+    border: none; /* 去掉預設的邊框樣式 */
+    margin: 50px;
+    height: 3px; /* 線條高度 */
+    background-color: #444; /* 顏色 */
+    border-radius: 5px; /* 圓角 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 陰影 */
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none; /* for Safari */
+    width: 15px; /* 控制正方形大小 */
+    height: 15px;
+    background-color: #fff;
+    border: 2px solid #444; /* 外邊框顏色 */
+    border-radius: 3px; /* 將圓角半徑設為 3px, 讓它接近正方形 */
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    margin-right: 3px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none; /* for Safari */
+    width: 15px; /* 控制正方形大小 */
+    height: 15px;
+    background-color: #fff;
+    border: 2px solid #444; /* 外邊框顏色 */
+    border-radius: 3px; /* 將圓角半徑設為 3px, 讓它接近正方形 */
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+input[type="radio"]:checked {
+    background-color: #6b917f; /* 被選中後的顏色 */
+    border-color: #444; /* 被選中後邊框顏色 */
+}
+
+input[type="checkbox"]:checked {
+    background-color: #6b917f; /* 被選中後的顏色 */
+    border-color: #444; /* 被選中後邊框顏色 */
+}
+/*
+td {
+    text-align: center;
+}
+
+td:first-child {
+    text-align: left;
+}*/
+
+.other-input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+/*
+input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+*/
+input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52,152,219,0.3);
+}
+
+textarea {
+    width: 95%;
+    padding: 8px;
+    margin: 10px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+
+.suggest {
+    padding: 3px;
+    margin: 10px;
+    border-radius: 10px;
+
+    justify-items: center;
+    text-align: center;
+    color: #ff3e3e;
+    background-color: #ffdfe2;
+    border-color: #ffdede;
+}
+
+.ques{
+    border-radius: 8px;
+}
+
+.option-list{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+
+.option-list:hover{
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+.options {
+    width: 600px; /* 與 dialog-box 相同寬度 */
+    margin: 0 auto; /* 水平置中 */
+    padding: 0 20px; /* 與 dialog-box 內邊距相同 */
+    box-sizing: border-box;
+    text-align: left; /* 文字靠左對齊 */
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* 選項之間的間距 */
+  }
+
+
+
+
+
+
+
+
+
+
+
+/*
+body {
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    background-color: #f5f7fa;
+    line-height: 1.6;
+    color: #2c3e50;
+}*/
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.title {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    font-weight: bold;
+}
+
+
+
+.form-group {
+    /*margin-bottom: 25px;*/
+    margin: 13px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    border: #ddd solid 1px;
+    transition: all 0.3s ease;
+}
+
+.form-group:hover {
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.question-number {
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.form-group label {
+    display: inline-block;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+}
+
+
+
+
+.radio-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: bottom;
+}
+
+.radio-group label {
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.radio-group label:hover {
+    background-color: #e8f4fc;
+}
+
+/* 新增提交按鈕相關樣式 */
+.button-group {
+    margin-top: 40px;
+    text-align: center;
+    justify-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(52,152,219,0.2);
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 8px rgba(52,152,219,0.3);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(52,152,219,0.2);
+}
+
+.reset-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(231,76,60,0.2);
+    margin-left: 20px;
+}
+
+.reset-btn:hover {
+    background-color: #c0392b;
+    box-shadow: 0 4px 8px rgba(231,76,60,0.3);
+    transform: translateY(-2px);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(231,76,60,0.2);
+}
+
+h3{
+    padding: 10px;
+}
+h2{
+    padding: 10px;
+}
+/*
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .form-group {
+        padding: 10px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .radio-group label {
+        margin: 5px 0;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .submit-btn, .reset-btn {
+        width: 100%;
+        margin: 0;
+    }
+}*/
+
+
+
+
+/*==================welcome====================================*/
+
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .dot.active {
+    background-color: #202020;
+  }
+
+
+
+  .dialog-box {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    height: 250px;
+    margin: 50px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .navigation {
+    /*position: relative;
+    bottom: 100px;  
+    left: 0;
+    right: 0;
+    justify-items: center;*/
+    text-align: center;
+  }
+
+  .navigation button {
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .pink {
+    background-color: #c39ea0;
+  }
+
+  .green {
+      background-color: #6b917f;
+  }
+
+  label {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+
+
+
+
+
+
+/* 禁用的 checkbox 樣式 for baselec5*/
+input[type="checkbox"]:disabled {
+    background-color: #bbb; /* 背景色為灰色，顯示禁用狀態 */
+    cursor: not-allowed; /* 顯示禁止點擊的光標 */
+}
