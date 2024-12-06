@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.error-container {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.error-code {
+    font-size: 80px;
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --cr-main-1: #de2a99;
+    --cr-main-2: #f087f4;
+    --cr-1: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 20%);
+    --cr-2: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 35%);
+    --cr-3: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 50%);
+    --cr-4: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 65%);
+    --cr-5: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 80%);
+  }
+  
+  html,
+  body {
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+  }
+  
+  body {
+    display: grid;
+    place-content: center;
+    background: whitesmoke;
+  }
+  
+  .blobs {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    filter: blur(170px);
+  }
+  
+  .blob {
+    width: max(240px, 28vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+  }
+  
+  .blob:nth-of-type(1) {
+    background: var(--cr-main-1);
+  }
+  
+  .blob:nth-of-type(2) {
+    background: var(--cr-main-2);
+  }
+  
+  .blob:nth-of-type(3) {
+    background: var(--cr-1);
+  }
+  
+  .blob:nth-of-type(4) {
+    background: whitesmoke;
+  }
+  
+  .blob:nth-of-type(5) {
+    background: var(--cr-3);
+  }
+  
+  .blob:nth-of-type(6) {
+    background: var(--cr-4);
+  }
+  
+  .blob:nth-of-type(7) {
+    background: var(--cr-2);
+  }
+  
+  h2 {
+    font-size: clamp(24px, 6vw, 64px);
+    max-width: 400px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 1;
+    mix-blend-mode: overlay;
+  }

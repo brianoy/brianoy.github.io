@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="guide.css"><!-- 引用外部 css 文件 -->
+</head>
+<body>
+  <div id="dialog-box" class="dialog-box">    
+    <h2>感謝您完成問卷內容。</h2>
+    <b>
+    <p>接下來您將參與多輪的投資遊戲作業。</p>
+    <p>為了確保研究順利進行，我們建議您一次性完成所有試驗，並盡量避免中斷。</p>
+    <p>若操作過程中畫面跳轉到下一輪，可能是因為操作時間稍長，請安心繼續進行後續步驟</p>
+    <p>此外，若畫面停置超過10分鐘，可能會導致研究終止，敬請留意</p>
+    <p>整個過程預計需要約 15分鐘，再次感謝您的參與。</p>
+    </b>
+    <div class="notice-box">
+      <b>
+      在進行過程中，請根據畫面上的指示進行操作。若您感到不適或有任何問題，您可以隨時選擇中止實驗。只需點擊出現在不同階段界面上的「中止實驗」按鈕，或直接關閉網頁（按下「x」），我們會尊重您的選擇。
+      </b>
+    </div>
+    <b><p>謝謝您的參與，請準備好開始！</p></b>
+  </div>
+  <iframe id="quizFrame" class="quiz-frame fade-out" src="quiz.html"></iframe>
+  <br>
+  <div class="button-container" id="button-container">
+    <button class="next-button" id="left-btn">下一步 ▶▶</button>
+    <button class="stop-button" id="right-btn">終止實驗 ✋</button>
+  </div>
+
+  <script src="guide.js"></script> <!-- 引用外部 JavaScript 文件 -->
+</body>
+</html>

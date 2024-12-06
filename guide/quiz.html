@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數學測驗</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            min-height: 30vh;
+        }
+        .question {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .question-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .option {
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            min-width: 80px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+        .option.selected {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .result {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">請先回答以下問題：</h2>
+        
+        <div id="questionSet1">
+            <div class="question">
+                <div class="question-text">1. 15 + 7 = ?</div>
+                <div class="options" data-question="1-1">
+                    <div class="option" onclick="selectOption(this, '1-1')">42</div>
+                    <div class="option" onclick="selectOption(this, '1-1')">22</div>
+                    <div class="option" onclick="selectOption(this, '1-1')">25</div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-text">2. 28 + 55 = ?</div>
+                <div class="options" data-question="1-2">
+                    <div class="option" onclick="selectOption(this, '1-2')">73</div>
+                    <div class="option" onclick="selectOption(this, '1-2')">83</div>
+                    <div class="option" onclick="selectOption(this, '1-2')">93</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="questionSet2" class="hidden">
+            <div class="question">
+                <div class="question-text">1. 12 + 9 = ?</div>
+                <div class="options" data-question="2-1">
+                    <div class="option" onclick="selectOption(this, '2-1')">19</div>
+                    <div class="option" onclick="selectOption(this, '2-1')">21</div>
+                    <div class="option" onclick="selectOption(this, '2-1')">23</div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-text">2. 28 - 4 = ?</div>
+                <div class="options" data-question="2-2">
+                    <div class="option" onclick="selectOption(this, '2-2')">22</div>
+                    <div class="option" onclick="selectOption(this, '2-2')">24</div>
+                    <div class="option" onclick="selectOption(this, '2-2')">26</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="result" class="result">請使用滑鼠選擇答案</div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            '1-1': '22',
+            '1-2': '83',
+            '2-1': '21',
+            '2-2': '24'
+        };
+    
+        let currentSet = 1;
+        let selectedAnswers = {};
+        let questionStartTime = Date.now(); // 記錄第一題開始的時間
+        let answerDetails = {}; // 記錄每題的答題狀況與時間
+    
+        function notifyParentWindow(result) {
+            const message = {
+                type: 'quizCompleted',
+                success: result, // true 代表通過測驗，false 代表未通過
+                details: answerDetails // 回傳答題詳細資訊
+            };
+    
+            // 檢查是否在 iframe 中
+            if (window.parent !== window) {
+                window.parent.postMessage(message, '*');
+            }
+        }
+    
+        function selectOption(element, questionId) {
+            // 記錄選中選項的時間
+            const questionEndTime = Date.now();
+            const timeTaken = questionEndTime - questionStartTime; // 答題所花的時間
+            questionStartTime = questionEndTime; // 更新開始時間為下一題起始時間
+    
+            // 移除同一題目其他選項的選中狀態
+            const options = element.parentElement.getElementsByClassName('option');
+            for (let option of options) {
+                option.classList.remove('selected');
+            }
+    
+            // 選中當前選項
+            element.classList.add('selected');
+            selectedAnswers[questionId] = element.textContent;
+    
+            // 記錄答題詳情
+            answerDetails[questionId] = {
+                selectedAnswer: element.textContent,
+                isCorrect: element.textContent === correctAnswers[questionId],
+                timeTaken: timeTaken
+            };
+    
+            // 檢查當前組是否已經全部回答
+            checkSetCompletion();
+        }
+    
+        function checkSetCompletion() {
+            const resultDiv = document.getElementById('result');
+    
+            if (currentSet === 1) {
+                if (selectedAnswers['1-1'] && selectedAnswers['1-2']) {
+                    const isSet1Correct = selectedAnswers['1-1'] === correctAnswers['1-1'] &&
+                        selectedAnswers['1-2'] === correctAnswers['1-2'];
+    
+                    if (isSet1Correct) {
+                        resultDiv.innerHTML = '恭喜！你通過測驗了！';
+                        resultDiv.style.color = 'green';
+                        notifyParentWindow(true); // 通知父頁面測驗通過
+                    } else {
+                        currentSet = 2;
+                        document.getElementById('questionSet1').classList.add('hidden');
+                        document.getElementById('questionSet2').classList.remove('hidden');
+                        resultDiv.innerHTML = '答案不正確，請嘗試下一組題目。';
+                        resultDiv.style.color = 'red';
+                        selectedAnswers = {}; // 清空選擇紀錄
+                        questionStartTime = Date.now(); // 設定新題目組的開始時間
+                    }
+                }
+            } else {
+                if (selectedAnswers['2-1'] && selectedAnswers['2-2']) {
+                    const isSet2Correct = selectedAnswers['2-1'] === correctAnswers['2-1'] &&
+                        selectedAnswers['2-2'] === correctAnswers['2-2'];
+    
+                    if (isSet2Correct) {
+                        resultDiv.innerHTML = '恭喜！你通過測驗了！';
+                        resultDiv.style.color = 'green';
+                        notifyParentWindow(true); // 通知父頁面測驗通過
+                    } else {
+                        resultDiv.innerHTML = '很抱歉，測驗未通過。';
+                        resultDiv.style.color = 'red';
+                        notifyParentWindow(false); // 通知父頁面測驗未通過
+                    }
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
+
+
+

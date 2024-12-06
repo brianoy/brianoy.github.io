@@ -1,0 +1,346 @@
+* {
+  transition: opacity 0.5s ease-in-out;
+}
+.hide {
+  display: none;
+}
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+body {
+  position: relative;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  line-height: 1.6;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh; /*如果設定100vh會出現卷軸*/
+  background-color: #fff;
+}
+
+
+.quiz-frame {
+  position: absolute;
+  width: 100%;
+  top:5vh;
+  height: 45vh;  /* 可依需求調整高度 */
+  border: none;
+  margin-top: 20px;
+  display: flex;  /* 初始隱藏 */
+}
+
+.dialog-box{
+  justify-content: center;
+  position: relative;
+  min-height: 28vh;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.dialog-box video{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.animation_container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+/* 滑鼠區域 */
+.mouse-area {
+  position: relative;
+  width: 60px;
+  height: 160px;
+}
+
+.mouse {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+}
+
+.scroll-wheel {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 10px;
+  height: 30px;
+  background: #333;
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+
+/* 筆電觸控板區域 */
+.trackpad-area {
+  position: relative;
+  width: 200px;
+  height: 160px;
+}
+
+.laptop {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200px;
+  height: 120px;
+  background: #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+}
+
+.trackpad {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 120px;
+  height: 60px;
+  background: #eee;
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+
+.finger {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: #ffcc99; /* 手指膚色 */
+  border-radius: 15px 15px 0 0;
+  transform-origin: top center;
+
+  /* 指甲 */
+  overflow: hidden; /* 確保指甲不會超出手指區域 */
+}
+
+.finger::before {
+  content: '';
+  position: absolute;
+  top: 5px; /* 指甲距離手指頂部的位置 */
+  left: 50%;
+  width: 20px;
+  height: 10px;
+  background: #f9f3f0; /* 指甲顏色 */
+  border-radius: 10px;
+  transform: translateX(-50%);
+}
+
+
+.mouse-finger {
+  top: 60px;
+  left: 10%;
+  transform: translateX(-50%) rotate(10deg);
+  animation: fingerTapMouse 1.5s infinite;
+}
+
+.trackpad-finger {
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg);
+  animation: fingerTapTrackpad 1.5s infinite;
+}
+
+/* 手指戳滑鼠動畫 */
+@keyframes fingerTapMouse {
+  0%, 100% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(30px) rotate(0deg);
+  }
+}
+
+/* 手指戳觸控板動畫 */
+@keyframes fingerTapTrackpad {
+  0%, 100% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(40px) rotate(0deg);
+  }
+}
+
+
+
+
+
+.notice-box {
+  border: 1px dashed #999;
+  padding: 20px;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row; /* 垂直排列按鈕 */
+  justify-content: center;
+  gap: 15px;              /* 按鈕之間的間距 */
+  padding-top: 2vh;
+}
+
+.choose-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row; /* 水平排列 */
+  justify-content: space-between; /* 按鈕平均分布 */
+  align-items: center; /* 垂直居中 */
+  gap: 0; /* 移除按鈕間的間距，讓寬度均勻分布 */
+}
+
+.next-button {
+  background-color: #D88A9A;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.stop-button {
+  background-color: #4B7B6F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.understand-button {
+  background-color: #2F528F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.again-button:hover {
+  background-color: #a86f7b;
+}
+
+.understand-button:hover {
+  background-color: #203964;
+}
+
+
+
+
+
+
+.button_choose {
+  background-color: #BF9F8B;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+h1{
+  font-size: 6em;
+  justify-items: center;
+  text-align: center;
+}
+
+h2{
+  padding-top: 1em;
+  font-size: 1.5em;
+  justify-items: center;
+  text-align: center;
+}
+
+
+
+
+/*三個bar拉桿測試投資處*/
+.investment-container {
+  justify-items: center;
+  flex-direction: row;
+  display: flex;
+  gap: 20px;
+  min-width: 50vw;
+  min-height: 12vh;
+}
+
+.investment-item {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 25vw;
+
+}
+
+input[type="range"] {
+  width: 60%;
+}
+
+
+/*三個image*/
+.images-container {
+  align-items: flex-start; /* 所有子元素向上對齊 */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  min-height: 300px;
+  /*max-height: 10vh;*/
+}
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.image-caption {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/*RWD*/
+@media (max-height: 1000px) {
+  .quiz-frame {
+    height: 500px;
+  }
+}
+@media (max-width: 1500px) {
+  .images-container {
+    flex-direction: column;
+  }
+
+}
+
+
+
+/* 按鈕懸停效果 */
+#dialog-box .stop-button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+p{
+  margin: 0.4rem;
+}

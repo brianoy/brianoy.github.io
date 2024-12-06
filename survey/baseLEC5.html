@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人基本資料</title>
+    <link rel="stylesheet" href="_survey.css"><!-- 引用外部 css 文件 -->
+    
+</head>
+<body>
+    <div class="survey-container">
+        <div class="title">個人基本資料</div>
+        
+        <div class="notice">
+            填答說明：請依據題項進行選擇，或在內填寫相關資料。本問卷僅供學術研究使用，所有資料都會以匿名保存，請放心填答，謝謝。	
+        </div>
+
+        <form id="base_LEC5">
+            <!-- 保留之前的所有表單內容 -->
+            <div class="form-group ques">
+                <span class="question-number">1.</span>
+                年齡：<input type="text" size="10" placeholder="請輸入年齡" name = "age" pattern="^(0|[1-9]?\d|1\d{2}|200)$">歲（實歲）
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">2.</span>
+                性別：
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="男"> 男</label>
+                    <label><input type="radio" name="gender" value="女"> 女</label>
+                    <label><input type="radio" name="gender" value="其他" id="gender"> 其他 <input type="text" size="10" name="gender_more" id="gender_more"></label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">3.</span>
+                教育程度：
+                <div class="radio-group">
+                    <label><input type="radio" name="educ" value="國小以下"> 國小以下</label>
+                    <label><input type="radio" name="educ" value="國小"> 國小</label>
+                    <label><input type="radio" name="educ" value="國中"> 國中</label>
+                    <label><input type="radio" name="educ" value="高中職"> 高中職</label>
+                    <label><input type="radio" name="educ" value="專科"> 專科</label>
+                    <label><input type="radio" name="educ" value="大學"> 大學</label>
+                    <label><input type="radio" name="educ" value="研究所（含以上）"> 研究所（含以上）</label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">4.</span>
+                工作狀況：
+                <div class="radio-group">
+                    <label><input type="radio" name="emp_status" value="待業中"> 待業中</label>
+                    <label><input type="radio" name="emp_status" value="家管"> 家管</label>
+                    <label><input type="radio" name="emp_status" value="兼職"> 兼職</label>
+                    <label><input type="radio" name="emp_status" value="正職"> 正職</label>
+                    <label><input type="radio" name="emp_status" value="退休"> 退休</label>
+                    <label><input type="radio" name="emp_status" value="學生"> 學生</label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">5.</span>
+                職業：<input type="text" size="30" placeholder="請輸入職業" name="occupation">
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">6.</span>
+                經濟狀況：
+                <div class="radio-group">
+                    <label><input type="radio" name="econ_status" value="需要幫助"> 需要幫助</label>
+                    <label><input type="radio" name="econ_status" value="勉強維持"> 勉強維持</label>
+                    <label><input type="radio" name="econ_status" value="足夠生活"> 足夠生活</label>
+                    <label><input type="radio" name="econ_status" value="經濟寬裕"> 經濟寬裕</label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">7.</span>
+                婚姻狀況：
+                <div class="radio-group">
+                    <label><input type="radio" name="mar_status" value="未婚"> 未婚</label>
+                    <label><input type="radio" name="mar_status" value="已婚"> 已婚</label>
+                    <label><input type="radio" name="mar_status" value="離婚"> 離婚</label>
+                    <label><input type="radio" name="mar_status" value="喪偶"> 喪偶</label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">8.</span>
+                居住狀況：
+                <div class="radio-group">
+                    <label><input type="radio" name="res_status" value="獨自居住"> 獨自居住</label>
+                    <label><input type="radio" name="res_status" value="家人同住"> 家人同住</label>
+                    <label><input type="radio" name="res_status" value="伴侶同居"> 伴侶同居</label>
+                    <label><input type="radio" name="res_status" value="親友同住"> 親友同住</label>
+                    <label><input type="radio" name="res_status" value="其他"> 其他 <input type="text" size="10" name="res_status_more" id="res_status_more"></label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">9.</span>
+                是否曾有精神或神經疾患方面的診斷？
+                <div class="radio-group">
+                    <label><input type="radio" name="med_history" value="是"> 是，初次生病年齡為 <input type="text" size="5" name="med_history_more_age" pattern="^(0|[1-9]?\d|1\d{2}|200)$" id="med_history_more_age"> 歲，診斷為 <input type="text" size="20" name="med_history_more_diagnose" id="med_history_more_diagnose"></label>
+                    <label><input type="radio" name="med_history" value="否"> 否</label>
+                </div>
+            </div>
+
+            <div class="form-group ques">
+                <span class="question-number">10.</span>
+                目前是否有服用身心科藥物（如安眠藥、抗憂鬱或抗焦慮等身心科用藥）？
+                <div class="radio-group">
+                    <label><input type="radio" name="medication_history" value="是" id="medication_history"> 是，藥物類型或名稱 <input type="text" size="20" name="medication_history_more" id="medication_history_more"></label>
+                    <label><input type="radio" name="medication_history" value="否"> 否</label>
+                </div>
+            </div>
+
+
+<br><br>
+
+        <div class="title">創傷生活事件核查表</div>
+        <h2>第一部分</h2>
+        <div class="instruction">
+            <p>填答說明:下面列出了若干有時會發生在人們身上的困難或壓力事件。請針對每項事件勾選右方符合的欄位</p>
+            <p>(a)該事件發生在你個人身上;</p>
+            <p>(b)你親眼目睹該事件發生在他人身上;</p>
+            <p>(c)你得知該事件發生在關係密切的親人或親近的朋友身上;</p>
+            <p>(d)你是作為工作的一部分而接觸該事件(例如:醫務輔助人員[如緊急救護技術員/EMT]、警察、軍人、或其他第一線應變人員);</p>
+            <p>(e)你不確定該事件是否符合;</p>
+            <p>(f)該事件對你不適用。</p>
+            <p>當你填答下列所有事件時,請務必考量你整個人生期間(成長過程與成人時期)。</p>
+        </div>
+        <div class ="suggest">每題必選,可複選（每題 a~e 的選項不與 f 同時選取）</div>
+        
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="50%">事件</th>
+                        <th>(a)發生在我身上</th>
+                        <th>(b)目睹這件事</th>
+                        <th>(c)得知這件事</th>
+                        <th>(d)我工作一部分</th>
+                        <th>(e)不確定</th>
+                        <th>(f)不適用</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="ques targetTable">
+                        <td>1. 自然災害 (例如：水災、颱風/暴風、龍捲風、地震)</td>
+                        <td><input type="checkbox" name="LEC_Q1" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q1" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q1" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q1" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q1" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q1" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>2. 火災或爆炸</td>
+                        <td><input type="checkbox" name="LEC_Q2" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q2" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q2" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q2" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q2" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q2" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>3. 運輸事故 (例如：車禍、船難、火車失事、飛機失事) </td>
+                        <td><input type="checkbox" name="LEC_Q3" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q3" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q3" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q3" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q3" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q3" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>4. 在工作、家裡、或娛樂活動期間的嚴重意外</td>
+                        <td><input type="checkbox" name="LEC_Q4" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q4" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q4" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q4" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q4" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q4" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>5. 暴露在有毒物質中(例如：危險的化學物質、輻射)</td>
+                        <td><input type="checkbox" name="LEC_Q5" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q5" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q5" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q5" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q5" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q5" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>6. 身體侵害(例如：遭攻擊、遭掌摑、被踢、被毆打)</td>
+                        <td><input type="checkbox" name="LEC_Q6" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q6" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q6" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q6" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q6" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q6" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>7. 使用武器攻擊(例如：遭槍擊，遭刺，遭受刀、槍、炸彈恐嚇)</td>
+                        <td><input type="checkbox" name="LEC_Q7" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q7" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q7" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q7" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q7" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q7" value="f"></td>
+                    </tr>
+                    
+                    <tr class="ques targetTable">
+                        <td>8. 性侵害(強暴、企圖強暴、受暴力或威脅傷害迫使從事的任何性行為) </td>
+                        <td><input type="checkbox" name="LEC_Q8" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q8" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q8" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q8" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q8" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q8" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>9. 其他不想要或不舒服的性經驗</td>
+                        <td><input type="checkbox" name="LEC_Q9" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q9" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q9" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q9" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q9" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q9" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>10. 戰爭或暴露在戰區(身在軍隊或作為平民)</td>
+                        <td><input type="checkbox" name="LEC_Q10" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q10" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q10" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q10" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q10" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q10" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>11. 囚禁(例如：遭綁架、遭誘拐、遭挾持、戰俘)</td>
+                        <td><input type="checkbox" name="LEC_Q11" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q11" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q11" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q11" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q11" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q11" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>12. 威脅生命的疾病或傷害</td>
+                        <td><input type="checkbox" name="LEC_Q12" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q12" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q12" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q12" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q12" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q12" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>13. 嚴重的人類苦難</td>
+                        <td><input type="checkbox" name="LEC_Q13" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q13" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q13" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q13" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q13" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q13" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>14. 突發的暴力死亡(例如：殺人、自殺)</td>
+                        <td><input type="checkbox" name="LEC_Q14" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q14" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q14" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q14" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q14" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q14" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>15. 突然的意外死亡</td>
+                        <td><input type="checkbox" name="LEC_Q15" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q15" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q15" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q15" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q15" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q15" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>16. 你造成他人嚴重受傷、傷害、或死亡</td>
+                        <td><input type="checkbox" name="LEC_Q16" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q16" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q16" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q16" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q16" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q16" value="f"></td>
+                    </tr>
+                    <tr class="ques targetTable">
+                        <td>17. 任何其他壓力非常大的事件或經驗</td>
+                        <td><input type="checkbox" name="LEC_Q17" value="a"></td>
+                        <td><input type="checkbox" name="LEC_Q17" value="b"></td>
+                        <td><input type="checkbox" name="LEC_Q17" value="c"></td>
+                        <td><input type="checkbox" name="LEC_Q17" value="d"></td>
+                        <td><input type="checkbox" name="LEC_Q17" value="e"></td>
+                        <td><input type="checkbox" name="LEC_Q17" value="f"></td>
+                    </tr>
+                    
+                </tbody>
+
+            </table>
+            <div class = "section2" id="section2">
+                <div class="form-group">
+                <h3>17-1 如果你於第 17 題中有勾選「不適用」以外的選項，請在以下選項中選擇最符合您經歷的事項別：</h3>
+                <div class = "suggest">第 17 題選擇 a ~ e 任一時必填，可複選</div>
+                
+                <ul class="option-list ques">
+                    <label><input type="checkbox" name="LEC_Q17_1" value="a"> a. 曾有任何人威脅要殺害你或讓你嚴重身體受傷</label><br>
+                    <label><input type="checkbox" name="LEC_Q17_1" value="b"> b. 精神暴力（如重複的言語攻擊或羞辱、日常生活必需品花費或家用開支都必須接受不合理管控、限制行動、利用或虐待孩子或任何受害人所照顧或重視的人或動物、鄙視、冷漠等）</label><br>
+                    <label><input type="checkbox" name="LEC_Q17_1" value="c"> c. 人際背叛（如伴侶不貞、朋友欺騙或中傷、被揭露重要秘密、被偷走點子、被排擠或疏離、被遺棄、被陷害而背黑鍋等）</label><br>
+                    <label><input type="checkbox" name="LEC_Q17_1" value="d"> d. 未經邀請或不想要的性關注（如碰觸、圍堵或阻擋去路、口頭評論、威脅或未經同意在網路上或是通訊軟體分享親密照片或影片）</label><br>
+                    <label><input type="checkbox" name="LEC_Q17_1" value="e"> e. 曾有任何人曾經跟監你（跟蹤你、監視或記錄你的活動），讓你感到威脅或擔心自身安全</label><br>
+                    <label><input type="checkbox" name="LEC_Q17_1" value="f"> f. 其他（請說明）
+                        <input type="text" placeholder="請輸入說明" style="margin-left: 10px;" name = "LEC_Q17_1_more">
+                    </label>
+                </ul>
+                </div>
+
+                <div class="form-group">
+                    <div class="ques">
+                        <h3>17-2 如果你於第 17 題中有勾選「不適用」以外的選項，請簡要陳述你想到的這項事件(例如:發生什麼事、牽涉到誰...等):</h3>
+                        <ul><textarea rows="4" placeholder="請簡要描述事件..." name="LEC_Q17_2"></textarea></ul>
+                    </div>
+                </div>
+                <br><hr>
+                <h2>第二部分</h2>
+                <div class="instruction">如果你在第一部份經驗超過一項事件,請思考其中你認為最糟的一項事件,在這問卷中意指目前最困擾你的事件。如果你在第一部分只經驗歷一項事件,就用這事件作為最糟的事件。請回答以下關於最糟事件的問題(勾選所有適用的選項)。</div>
+        
+
+                <div class="form-group targetIPT">
+                    <h3>A. 下面列出前面的創傷生活事件,請在以下選項中選擇最符合您認為最糟的一項事件經歷的類別:</h3>
+                    <div class="ques">
+                        <div class="suggest">單選</div>
+                        <ul class="option-list ques">
+                            <input type="radio" name="LEC_QA" value="1"> 1. 自然災害 (例如：水災、颱風/颶風、龍捲風、地震)<br>
+                            <input type="radio" name="LEC_QA" value="2"> 2. 火災或爆炸<br>
+                            <input type="radio" name="LEC_QA" value="3"> 3. 運輸事故 (例如：車禍、船難、火車失事、飛機失事)<br>
+                            <input type="radio" name="LEC_QA" value="4"> 4. 在工作、家裡或娛樂活動期間的嚴重意外<br>
+                            <input type="radio" name="LEC_QA" value="5"> 5. 暴露在有毒物質中 (例如：危險的化學物質、輻射)<br>
+                            <input type="radio" name="LEC_QA" value="6"> 6. 身體侵害 (例如：遭攻擊、遭掌摑、被踢、被毆打)<br>
+                            <input type="radio" name="LEC_QA" value="7"> 7. 使用武器攻擊 (例如：遭槍擊、遭刺、遭劍/槍/炸彈恐嚇)<br>
+                            <input type="radio" name="LEC_QA" value="8"> 8. 性侵害 (強暴、企圖強暴、受暴力或威脅傷害迫使從事的任何性行為)<br>
+                            <input type="radio" name="LEC_QA" value="9"> 9. 其他不想要或不舒服的性經驗<br>
+                            <input type="radio" name="LEC_QA" value="10"> 10. 戰爭或暴露在戰區 (身在軍隊或作為平民)<br>
+                            <input type="radio" name="LEC_QA" value="11"> 11. 囚禁 (例如：遭綁架、遭誘拐、遭挾持、戰俘)<br>
+                            <input type="radio" name="LEC_QA" value="12"> 12. 威脅生命的疾病或受傷<br>
+                            <input type="radio" name="LEC_QA" value="13"> 13. 嚴重的人類苦難<br>
+                            <input type="radio" name="LEC_QA" value="14"> 14. 突發的暴力死亡(例如：殺人、自殺)<br>
+                            <input type="radio" name="LEC_QA" value="15"> 15. 突然的意外死亡	<br>
+                            <input type="radio" name="LEC_QA" value="16"> 16. 你造成他人嚴重受傷、傷害、或死亡<br>
+                            <input type="radio" name="LEC_QA" value="17"> 17. 曾有任何人威脅要殺害你或讓你嚴重身體受傷<br>
+                            <input type="radio" name="LEC_QA" value="18"> 18. 精神暴力（如重複的言語攻擊或羞辱、日常生活必需品花費或家用開支都必須接受不合理管控、限制行動、利用或虐待孩子或任何受害人所照顧或重視的人或動物、鄙視、冷漠等）<br>
+                            <input type="radio" name="LEC_QA" value="19"> 19. 人際背叛（如伴侶不貞、朋友欺騙或中傷、被揭露重要秘密、被偷走點子、被排擠或疏離、被遺棄、被陷害而背黑鍋等）<br>
+                            <input type="radio" name="LEC_QA" value="20"> 20. 未經邀請或不想要的性關注（如碰觸、圍堵或阻擋去路、口頭評論、威脅或未經同意在網路上或是通訊軟體分享親密照片或影片）<br>
+                            <input type="radio" name="LEC_QA" value="21"> 21. 曾有任何人曾經跟監你（跟蹤你、監視或記錄你的活動），讓你感到威脅或擔心自身安全<br>
+                            <input type="radio" name="LEC_QA" value="22"> 22. 其他（任何其他壓力非常大的事件或經驗）<br>
+                        </ul>	
+                    </div>
+                </div>
+
+        <div class="form-group">
+            <h3>B. 該事件牽涉到的這個人是？</h3>
+            <div class="suggest">可複選</div>
+            <ul class="option-list ques">
+                <input type="checkbox" name="LEC_QB" value="a"> a. 陌生人<br>
+                <input type="checkbox" name="LEC_QB" value="b"> b. 朋友或認識的人<br>
+                <input type="checkbox" name="LEC_QB" value="c"> c. 親戚<br>
+                <input type="checkbox" name="LEC_QB" value="d"> d. 上司、同事或同學<br>
+                <input type="checkbox" name="LEC_QB" value="e"> e. 當時的前親密伴侶<br>
+                <input type="checkbox" name="LEC_QB" value="f"> f. 當時的親密伴侶<br>
+                <input type="checkbox" name="LEC_QB" value="g"> g. 雙親或照顧者<br>
+                <input type="checkbox" name="LEC_QB" value="h"> h. 不適用 (該事件未涉及他人)<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>C. 簡短描述這項最糟的事件(例如：牽涉到誰、發生什麼事…等)。</h3>
+            <div class="suggest">若已於第一部分17-2填答，請填寫「同172 填答內容」；若無，請於下方進行簡短描述</div>
+            <ul class="ques">
+                <textarea rows="2" placeholder="請簡要描述事件..." name="LEC_QC"></textarea>
+            </ul>
+        </div>
+        <div class="form-group">
+            <h3>D. 該事件發生多久了？</h3>
+            <div class="suggest">(如果你不確定，請估計)</div>
+            <ul><textarea rows="2" placeholder="請簡要描述事件..." name="LEC_QD"></textarea></ul>
+        </div>
+        <div class="form-group">
+            <h3>E. 該事件第一次發生當時你的年齡？</h3>
+            <div class="suggest">(如果你不確定，請估計)</div>
+            <ul><textarea rows="2" placeholder="請簡要描述事件..." name="LEC_QE"></textarea></ul>
+        </div>
+        <div class="form-group">
+            <h3>F. 該事件最後一次發生當時你的年齡？</h3>
+            <div class="suggest">(如果你不確定，請估計)</div>
+            <ul><textarea rows="2" placeholder="請簡要描述事件..." name="LEC_QF"></textarea></ul>
+        </div>
+        <div class="form-group">
+            <h3>G. 你如何經歷該事件？</h3>
+            <div class="suggest">可複選</div>
+            <ul class="option-list ques">
+                <input type="checkbox" name="LEC_QG" value="a"> a.它直接發生在我身上<br>
+                <input type="checkbox" name="LEC_QG" value="b"> b.我親眼目睹它<br>
+                <input type="checkbox" name="LEC_QG" value="c"> c.我得知它發生在關係密切的親人或親近的朋友身上<br>
+                <input type="checkbox" name="LEC_QG" value="d"> d.我重複接觸它的細節因為這是我工作的一部分(例如：醫務輔助人員[如緊急救護技術員/EMT]、警察、軍人、或其他第一線應變人員)。<br>
+                <input type="checkbox" name="LEC_QG" value="e"> e.其他，請說明：<input type="text" placeholder="請輸入說明" style="margin-left: 10px;" name="LEC_QG_more">
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>H. 是否有人處於生命危險？</h3>
+            <div class="suggest">可複選</div>
+            <ul class="option-list ques">
+                <input type="checkbox" name="LEC_QH" value="a"> a.是，我的生命<br>
+                <input type="checkbox" name="LEC_QH" value="b"> b.是，其他人的生命<br>
+                <input type="checkbox" name="LEC_QH" value="c"> c.否<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>I. 是否有人嚴重受傷或遭殺害？</h3>
+            <div class="suggest">可複選</div>
+            <ul class="option-list ques">
+                <input type="checkbox" name="LEC_QI" value="a" > a.是，我嚴重受傷。<br>
+                <input type="checkbox" name="LEC_QI" value="b"> b.是，其他人嚴重受傷或遭殺害。<br>
+                <input type="checkbox" name="LEC_QI" value="c"> c.否<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>J. 該事件是否涉及性暴力？</h3>
+            <div class="suggest">單選</div>
+            <ul class="option-list ques">
+                <input type="radio" name="LEC_QJ" value="a" > a.是<br>
+                <input type="radio" name="LEC_QJ" value="b"> b.否<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>K. 如果該事件涉及關係密切的親人或親近的朋友死亡，是否由於某種意外或暴力、或是否由於自然原因？</h3>
+            <div class="suggest">單選</div>
+            <ul class="option-list ques">
+                <input type="radio" name="LEC_QK" value="a" > a.意外或暴力<br>
+                <input type="radio" name="LEC_QK" value="b"> b.自然因素<br>
+                <input type="radio" name="LEC_QK" value="c"> c.不適用 (該事件未涉及關係密切的親人或親近的朋友死亡)<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>L. 過往總共有多少次，你曾經經歷如同這項最糟事件般壓力或有相似壓力程度的事件呢？</h3>
+            <div class="suggest">單選</div>
+            <ul class="option-list ques">
+                <input type="radio" name="LEC_QL" value="a" > a.只有一次<br>
+                <input type="radio" name="LEC_QL" value="b"> b.超過一次(請具體列出或估算你曾有這樣經驗的總次數：<input type="text" placeholder="請輸入次數" style="margin-left: 10px; width: 100px;" name="LEC_QL_more">)。
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>M. 如果該事件涉及暴力關係，目前是否仍處於受暴關係中？</h3>
+            <div class="suggest">單選</div>
+            <ul class="option-list ques">
+                <input type="radio" name="LEC_QM" value="a" > a.是，我目前並未離開對方<br>
+                <input type="radio" name="LEC_QM" value="b"> b.否，我已離開此段關係<br>
+                <input type="radio" name="LEC_QM" value="c"> c.不適用(該事件未涉及暴力關係)<br>
+            </ul>	
+        </div>
+        <div class="form-group">
+            <h3>N. 是否曾因該事件而尋求專業協助？</h3>
+            <div class="suggest">單選</div>
+            <ul class="option-list ques">
+                <input type="radio" name="LEC_QN" value="a" > a.是，醫療<br>
+                <input type="radio" name="LEC_QN" value="b"> b.是，心理治療/心理諮商<br>
+                <input type="radio" name="LEC_QN" value="c"> c.是，法律訴訟<br>
+                <input type="radio" name="LEC_QN" value="d"> d.是，保護安置<br>
+                <input type="radio" name="LEC_QN" value="e"> e.是，其他<br>
+                <input type="radio" name="LEC_QN" value="f"> f.否<br>
+            </ul>	
+        </div>
+    </div>
+
+        <div class="button-group">
+            <button type="submit" class="submit-btn">提交</button>
+        </div>
+        </form>
+
+
+
+    </div>
+    <script src="_survey_logic.js"></script> <!-- 引用外部 JavaScript 文件 -->
+    <script src="baseLEC5.js"></script> <!-- 引用外部 JavaScript 文件 -->
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>創傷生活事件核核</title>
+    <link rel="stylesheet" href="_survey.css"><!-- 引用外部 css 文件 -->
+
+</head>
+<body>
+    <div class="survey-container">
+        <div class="title">PDS5創傷生活事件核查表</div>
+        <div class="instruction">
+            我們經歷創傷事件後有時會出現下列情形，以下的題目請根據前面【創傷生活事件檢核】中所選出相對上最困擾你的那一項創傷事件	或	唯一經歷的創傷事件對每個問題給予評分。	請仔細閱讀每一項陳述，圈選最能夠描述過去一個月期間，這項問題多常發生與對你造成多大困擾的數字。舉例來說，如果你過去一個月與朋友談論創傷一次，你的反應會如同以下結果：（因為前一個月一次比一週一次來得少）	
+        </div>
+        <form id="niptiptForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="50%">描述</th>
+                        <th>完全沒有</th>
+                        <th>一週1次或更少/有一點</th>
+                        <th>一週2至3次/有些</th>
+                        <th>一週4至5次/非常</th>
+                        <th>一週6次或更多/嚴重</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 關於此創傷不想要且難受的記憶</td>
+                        <td><input type="radio" name="PDS_q1" value="0"></td>
+                        <td><input type="radio" name="PDS_q1" value="1"></td>
+                        <td><input type="radio" name="PDS_q1" value="2"></td>
+                        <td><input type="radio" name="PDS_q1" value="3"></td>
+                        <td><input type="radio" name="PDS_q1" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>2. 關於此創傷的惡夢或夢靨</td>
+                        <td><input type="radio" name="PDS_q2" value="0"></td>
+                        <td><input type="radio" name="PDS_q2" value="1"></td>
+                        <td><input type="radio" name="PDS_q2" value="2"></td>
+                        <td><input type="radio" name="PDS_q2" value="3"></td>
+                        <td><input type="radio" name="PDS_q2" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>3. 重新體驗此創傷或感覺彷彿事件真的再次發生</td>
+                        <td><input type="radio" name="PDS_q3" value="0"></td>
+                        <td><input type="radio" name="PDS_q3" value="1"></td>
+                        <td><input type="radio" name="PDS_q3" value="2"></td>
+                        <td><input type="radio" name="PDS_q3" value="3"></td>
+                        <td><input type="radio" name="PDS_q3" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>4. 當提醒想到此創傷時感覺情緒上非常難受</td>
+                        <td><input type="radio" name="PDS_q4" value="0"></td>
+                        <td><input type="radio" name="PDS_q4" value="1"></td>
+                        <td><input type="radio" name="PDS_q4" value="2"></td>
+                        <td><input type="radio" name="PDS_q4" value="3"></td>
+                        <td><input type="radio" name="PDS_q4" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>5. 當提醒想到此創傷時出現身體反應（例如冒汗、心跳加速）</td>
+                        <td><input type="radio" name="PDS_q5" value="0"></td>
+                        <td><input type="radio" name="PDS_q5" value="1"></td>
+                        <td><input type="radio" name="PDS_q5" value="2"></td>
+                        <td><input type="radio" name="PDS_q5" value="3"></td>
+                        <td><input type="radio" name="PDS_q5" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>6. 試圖逃避與此創傷相關的想法或感受</td>
+                        <td><input type="radio" name="PDS_q6" value="0"></td>
+                        <td><input type="radio" name="PDS_q6" value="1"></td>
+                        <td><input type="radio" name="PDS_q6" value="2"></td>
+                        <td><input type="radio" name="PDS_q6" value="3"></td>
+                        <td><input type="radio" name="PDS_q6" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>7. 試圖逃避那些提醒你想到此創傷，或是自創傷之後感覺更危險的活動、情境、或地方</td>
+                        <td><input type="radio" name="PDS_q7" value="0"></td>
+                        <td><input type="radio" name="PDS_q7" value="1"></td>
+                        <td><input type="radio" name="PDS_q7" value="2"></td>
+                        <td><input type="radio" name="PDS_q7" value="3"></td>
+                        <td><input type="radio" name="PDS_q7" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>8. 無法記得此創傷事件的重要部份</td>
+                        <td><input type="radio" name="PDS_q8" value="0"></td>
+                        <td><input type="radio" name="PDS_q8" value="1"></td>
+                        <td><input type="radio" name="PDS_q8" value="2"></td>
+                        <td><input type="radio" name="PDS_q8" value="3"></td>
+                        <td><input type="radio" name="PDS_q8" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>9. 更負面的看你自己、他人或世界（例如「我無法信任人」、「我是弱者」）</td>
+                        <td><input type="radio" name="PDS_q9" value="0"></td>
+                        <td><input type="radio" name="PDS_q9" value="1"></td>
+                        <td><input type="radio" name="PDS_q9" value="2"></td>
+                        <td><input type="radio" name="PDS_q9" value="3"></td>
+                        <td><input type="radio" name="PDS_q9" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>10. 為所發生的事責怪你自己或他人（除了傷害你的人以外）</td>
+                        <td><input type="radio" name="PDS_q10" value="0"></td>
+                        <td><input type="radio" name="PDS_q10" value="1"></td>
+                        <td><input type="radio" name="PDS_q10" value="2"></td>
+                        <td><input type="radio" name="PDS_q10" value="3"></td>
+                        <td><input type="radio" name="PDS_q10" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>11. 經歷強烈的負面感受如懼怕、驚恐、憤怒、罪惡或羞愧</td>
+                        <td><input type="radio" name="PDS_q11" value="0"></td>
+                        <td><input type="radio" name="PDS_q11" value="1"></td>
+                        <td><input type="radio" name="PDS_q11" value="2"></td>
+                        <td><input type="radio" name="PDS_q11" value="3"></td>
+                        <td><input type="radio" name="PDS_q11" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>12. 失去興趣或不參與過去一向從事的活動</td>
+                        <td><input type="radio" name="PDS_q12" value="0"></td>
+                        <td><input type="radio" name="PDS_q12" value="1"></td>
+                        <td><input type="radio" name="PDS_q12" value="2"></td>
+                        <td><input type="radio" name="PDS_q12" value="3"></td>
+                        <td><input type="radio" name="PDS_q12" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>13. 感覺與他人疏遠或切斷聯繫</td>
+                        <td><input type="radio" name="PDS_q13" value="0"></td>
+                        <td><input type="radio" name="PDS_q13" value="1"></td>
+                        <td><input type="radio" name="PDS_q13" value="2"></td>
+                        <td><input type="radio" name="PDS_q13" value="3"></td>
+                        <td><input type="radio" name="PDS_q13" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>14. 有體驗正向感受的困難</td>
+                        <td><input type="radio" name="PDS_q14" value="0"></td>
+                        <td><input type="radio" name="PDS_q14" value="1"></td>
+                        <td><input type="radio" name="PDS_q14" value="2"></td>
+                        <td><input type="radio" name="PDS_q14" value="3"></td>
+                        <td><input type="radio" name="PDS_q14" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>15. 舉止更煩躁或對他人有攻擊性</td>
+                        <td><input type="radio" name="PDS_q15" value="0"></td>
+                        <td><input type="radio" name="PDS_q15" value="1"></td>
+                        <td><input type="radio" name="PDS_q15" value="2"></td>
+                        <td><input type="radio" name="PDS_q15" value="3"></td>
+                        <td><input type="radio" name="PDS_q15" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>16. 更加冒險或從事可能導致你或他人傷害的舉動（例如魯莽駕駛、嗑藥、無防護性行為）</td>
+                        <td><input type="radio" name="PDS_q16" value="0"></td>
+                        <td><input type="radio" name="PDS_q16" value="1"></td>
+                        <td><input type="radio" name="PDS_q16" value="2"></td>
+                        <td><input type="radio" name="PDS_q16" value="3"></td>
+                        <td><input type="radio" name="PDS_q16" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>17. 過度警覺或戒備（例如檢查誰在你周遭、背對門時感到不安等）</td>
+                        <td><input type="radio" name="PDS_q17" value="0"></td>
+                        <td><input type="radio" name="PDS_q17" value="1"></td>
+                        <td><input type="radio" name="PDS_q17" value="2"></td>
+                        <td><input type="radio" name="PDS_q17" value="3"></td>
+                        <td><input type="radio" name="PDS_q17" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>18. 提心吊膽或更容易驚嚇（例如當某人在你身後走近你）</td>
+                        <td><input type="radio" name="PDS_q18" value="0"></td>
+                        <td><input type="radio" name="PDS_q18" value="1"></td>
+                        <td><input type="radio" name="PDS_q18" value="2"></td>
+                        <td><input type="radio" name="PDS_q18" value="3"></td>
+                        <td><input type="radio" name="PDS_q18" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>19. 專注的困難</td>
+                        <td><input type="radio" name="PDS_q19" value="0"></td>
+                        <td><input type="radio" name="PDS_q19" value="1"></td>
+                        <td><input type="radio" name="PDS_q19" value="2"></td>
+                        <td><input type="radio" name="PDS_q19" value="3"></td>
+                        <td><input type="radio" name="PDS_q19" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>20. 入睡或維持睡眠的困難</td>
+                        <td><input type="radio" name="PDS_q20" value="0"></td>
+                        <td><input type="radio" name="PDS_q20" value="1"></td>
+                        <td><input type="radio" name="PDS_q20" value="2"></td>
+                        <td><input type="radio" name="PDS_q20" value="3"></td>
+                        <td><input type="radio" name="PDS_q20" value="4"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <h3>【苦惱與干擾】</h3>
+            <ul class="option-list">
+                <h3>21. 這些困難對你的煩擾有多大？</h3>
+                <input type="radio" id="q21_0" name="PDS_q21" value="0"><label for="q21_0">完全沒有  </label>
+                <input type="radio" id="q21_1" name="PDS_q21" value="1"><label for="q21_1">有一點  </label>
+                <input type="radio" id="q21_2" name="PDS_q21" value="2"><label for="q21_2">有些  </label>
+                <input type="radio" id="q21_3" name="PDS_q21" value="3"><label for="q21_3">非常  </label>
+                <input type="radio" id="q21_4" name="PDS_q21" value="4"><label for="q21_4">嚴重  </label>
+            </ul>
+
+            <ul class="option-list">
+                <h3>22. 這些困難對你平日生活的干擾有多大？（例如關係、工作或其他重要活動）</h3>
+                <input type="radio" id="q22_0" name="PDS_q22" value="0"><label for="q22_0">完全沒有  </label>
+                <input type="radio" id="q22_1" name="PDS_q22" value="1"><label for="q22_1">有一點  </label>
+                <input type="radio" id="q22_2" name="PDS_q22" value="2"><label for="q22_2">有些  </label>
+                <input type="radio" id="q22_3" name="PDS_q22" value="3"><label for="q22_3">非常  </label>
+                <input type="radio" id="q22_4" name="PDS_q22" value="4"><label for="q22_4">嚴重  </label>
+            </ul>
+            <h3>【症狀開始與持續期間】</h3>
+            <ul class="option-list">
+                <h3>23. 這些困難在創傷多久之後開始出現？（圈選一項）</h3>
+                <input type="radio" id="q23_a" name="PDS_q23" value="a"><label for="q23_a">  少於六個月</label><br>
+                <input type="radio" id="q23_b" name="PDS_q23" value="b"><label for="q23_b">  超過六個月</label>
+            </ul>
+
+            <ul class="option-list">
+                <h3>24. 你出現這些與創傷有關的困難多久了？（圈選一項）</h3>
+                <input type="radio" id="q24_a" name="PDS_q24" value="a"><label for="q24_a">  少於一個月</label><br>
+                <input type="radio" id="q24_b" name="PDS_q24" value="b"><label for="q24_b">  超過一個月</label>
+            </ul>
+
+            <hr>
+
+            <div class="title">DASS21創傷生活事件核查表</div>
+            <div class="instruction">
+                填答說明：我們想瞭解您在經歷【創傷⽣活事件檢核】中的事件後可能持有的想法。以下的題⽬請根據前⾯【創傷⽣活事件檢核】中所選出相對上最困擾您的那⼀項創傷事件 或 唯⼀經歷的創傷事件 對每個問題進⾏圈選。 以下列出⼀些陳述句，它們可能可以代表您的想法，但也可能不⼀樣。請仔細閱讀每個句⼦，圈選⼀個最符合您想法的選項，數字越⾼代表句⼦越符合您的想法，這些句⼦也沒有對或錯的標準答案。 
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="50%">描述</th>
+                        <th>⼀點都不適⽤</th>
+                        <th>偶爾適⽤/還可適⽤</th>
+                        <th>很適⽤/經常適⽤ </th>
+                        <th>⾮常適⽤/最適⽤</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 我覺得很難讓⾃⼰安靜下來</td>
+                        <td><input type="radio" name="DASS_q1" value="0"></td>
+                        <td><input type="radio" name="DASS_q1" value="1"></td>
+                        <td><input type="radio" name="DASS_q1" value="2"></td>
+                        <td><input type="radio" name="DASS_q1" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>2. 我感到⼝乾⾆燥</td>
+                        <td><input type="radio" name="DASS_q2" value="0"></td>
+                        <td><input type="radio" name="DASS_q2" value="1"></td>
+                        <td><input type="radio" name="DASS_q2" value="2"></td>
+                        <td><input type="radio" name="DASS_q2" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>3. 我好像不能再有任何愉快、舒暢的感覺</td>
+                        <td><input type="radio" name="DASS_q3" value="0"></td>
+                        <td><input type="radio" name="DASS_q3" value="1"></td>
+                        <td><input type="radio" name="DASS_q3" value="2"></td>
+                        <td><input type="radio" name="DASS_q3" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>4. 我感到呼吸困難（例如不是做運動時也感到氣促或透不過氣來）</td>
+                        <td><input type="radio" name="DASS_q4" value="0"></td>
+                        <td><input type="radio" name="DASS_q4" value="1"></td>
+                        <td><input type="radio" name="DASS_q4" value="2"></td>
+                        <td><input type="radio" name="DASS_q4" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>5. 我感到很難⾃動去開始⼯作</td>
+                        <td><input type="radio" name="DASS_q5" value="0"></td>
+                        <td><input type="radio" name="DASS_q5" value="1"></td>
+                        <td><input type="radio" name="DASS_q5" value="2"></td>
+                        <td><input type="radio" name="DASS_q5" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>6. 我對事情往往作出過敏反應</td>
+                        <td><input type="radio" name="DASS_q6" value="0"></td>
+                        <td><input type="radio" name="DASS_q6" value="1"></td>
+                        <td><input type="radio" name="DASS_q6" value="2"></td>
+                        <td><input type="radio" name="DASS_q6" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>7. 我感到顫抖（例如⼿震）</td>
+                        <td><input type="radio" name="DASS_q7" value="0"></td>
+                        <td><input type="radio" name="DASS_q7" value="1"></td>
+                        <td><input type="radio" name="DASS_q7" value="2"></td>
+                        <td><input type="radio" name="DASS_q7" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>8. 我覺得⾃⼰消耗很多精神</td>
+                        <td><input type="radio" name="DASS_q8" value="0"></td>
+                        <td><input type="radio" name="DASS_q8" value="1"></td>
+                        <td><input type="radio" name="DASS_q8" value="2"></td>
+                        <td><input type="radio" name="DASS_q8" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>9. 我憂慮⼀些令⾃⼰恐慌或出醜的場合</td>
+                        <td><input type="radio" name="DASS_q9" value="0"></td>
+                        <td><input type="radio" name="DASS_q9" value="1"></td>
+                        <td><input type="radio" name="DASS_q9" value="2"></td>
+                        <td><input type="radio" name="DASS_q9" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>10. 我覺得⾃⼰對將來沒有甚麼可盼望</td>
+                        <td><input type="radio" name="DASS_q10" value="0"></td>
+                        <td><input type="radio" name="DASS_q10" value="1"></td>
+                        <td><input type="radio" name="DASS_q10" value="2"></td>
+                        <td><input type="radio" name="DASS_q10" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>11. 我感到忐忑不安</td>
+                        <td><input type="radio" name="DASS_q11" value="0"></td>
+                        <td><input type="radio" name="DASS_q11" value="1"></td>
+                        <td><input type="radio" name="DASS_q11" value="2"></td>
+                        <td><input type="radio" name="DASS_q11" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>12. 我感到很難放鬆⾃⼰</td>
+                        <td><input type="radio" name="DASS_q12" value="0"></td>
+                        <td><input type="radio" name="DASS_q12" value="1"></td>
+                        <td><input type="radio" name="DASS_q12" value="2"></td>
+                        <td><input type="radio" name="DASS_q12" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>13. 我感到憂鬱沮喪</td>
+                        <td><input type="radio" name="DASS_q13" value="0"></td>
+                        <td><input type="radio" name="DASS_q13" value="1"></td>
+                        <td><input type="radio" name="DASS_q13" value="2"></td>
+                        <td><input type="radio" name="DASS_q13" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>14. 我無法容忍任何阻礙我繼續⼯作的事情</td>
+                        <td><input type="radio" name="DASS_q14" value="0"></td>
+                        <td><input type="radio" name="DASS_q14" value="1"></td>
+                        <td><input type="radio" name="DASS_q14" value="2"></td>
+                        <td><input type="radio" name="DASS_q14" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>15. 我感到快要恐慌了</td>
+                        <td><input type="radio" name="DASS_q15" value="0"></td>
+                        <td><input type="radio" name="DASS_q15" value="1"></td>
+                        <td><input type="radio" name="DASS_q15" value="2"></td>
+                        <td><input type="radio" name="DASS_q15" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>16. 我對任何事也不能熱衷</td>
+                        <td><input type="radio" name="DASS_q16" value="0"></td>
+                        <td><input type="radio" name="DASS_q16" value="1"></td>
+                        <td><input type="radio" name="DASS_q16" value="2"></td>
+                        <td><input type="radio" name="DASS_q16" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>17. 我覺得⾃⼰不怎麼配做⼈</td>
+                        <td><input type="radio" name="DASS_q17" value="0"></td>
+                        <td><input type="radio" name="DASS_q17" value="1"></td>
+                        <td><input type="radio" name="DASS_q17" value="2"></td>
+                        <td><input type="radio" name="DASS_q17" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>18. 我發覺⾃⼰很容易被觸怒</td>
+                        <td><input type="radio" name="DASS_q18" value="0"></td>
+                        <td><input type="radio" name="DASS_q18" value="1"></td>
+                        <td><input type="radio" name="DASS_q18" value="2"></td>
+                        <td><input type="radio" name="DASS_q18" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>19. 我察覺⾃⼰在沒有明顯的體⼒勞動時，也感到⼼律不正常</td>
+                        <td><input type="radio" name="DASS_q19" value="0"></td>
+                        <td><input type="radio" name="DASS_q19" value="1"></td>
+                        <td><input type="radio" name="DASS_q19" value="2"></td>
+                        <td><input type="radio" name="DASS_q19" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>20. 我無緣無故地感到害怕</td>
+                        <td><input type="radio" name="DASS_q20" value="0"></td>
+                        <td><input type="radio" name="DASS_q20" value="1"></td>
+                        <td><input type="radio" name="DASS_q20" value="2"></td>
+                        <td><input type="radio" name="DASS_q20" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>21. 我感到⽣命毫無意義</td>
+                        <td><input type="radio" name="DASS_q21" value="0"></td>
+                        <td><input type="radio" name="DASS_q21" value="1"></td>
+                        <td><input type="radio" name="DASS_q21" value="2"></td>
+                        <td><input type="radio" name="DASS_q21" value="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            
+            <div class="title">PMBS創傷生活事件核查表</div>
+            <div class="instruction">
+                填答說明：我們想瞭解您在經歷【創傷⽣活事件檢核】中的事件後可能持有的想法。以下的題⽬請根據前⾯【創傷⽣活事件檢核】中所選出相對上最困擾您的那⼀項創傷事件 或 唯⼀經歷的創傷事件 對每個問題進⾏圈選。 以下列出⼀些陳述句，它們可能可以代表您的想法，但也可能不⼀樣。請仔細閱讀每個句⼦，圈選⼀個最符合您想法的選項，數字越⾼代表句⼦越符合您的想法，這些句⼦也沒有對或錯的標準答案。 
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="45%">描述</th>
+                        <th>完全不符合</th>
+                        <th>非常不符合</th>
+                        <th>稍微不符合</th>
+                        <th>中性無意見</th>
+                        <th>稍微符合</th>
+                        <th>非常符合</th>
+                        <th>完全符合</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 我在任何地⽅都不再感覺到安全 </td>
+                        <td><input type="radio" name="PMBS_q1" value="1"></td>
+                        <td><input type="radio" name="PMBS_q1" value="2"></td>
+                        <td><input type="radio" name="PMBS_q1" value="3"></td>
+                        <td><input type="radio" name="PMBS_q1" value="4"></td>
+                        <td><input type="radio" name="PMBS_q1" value="5"></td>
+                        <td><input type="radio" name="PMBS_q1" value="6"></td>
+                        <td><input type="radio" name="PMBS_q1" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>2. 別⼈可以真⼼地愛我</td>
+                        <td><input type="radio" name="PMBS_q2" value="1"></td>
+                        <td><input type="radio" name="PMBS_q2" value="2"></td>
+                        <td><input type="radio" name="PMBS_q2" value="3"></td>
+                        <td><input type="radio" name="PMBS_q2" value="4"></td>
+                        <td><input type="radio" name="PMBS_q2" value="5"></td>
+                        <td><input type="radio" name="PMBS_q2" value="6"></td>
+                        <td><input type="radio" name="PMBS_q2" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>3. 我是⼀個好⼈</td>
+                        <td><input type="radio" name="PMBS_q3" value="1"></td>
+                        <td><input type="radio" name="PMBS_q3" value="2"></td>
+                        <td><input type="radio" name="PMBS_q3" value="3"></td>
+                        <td><input type="radio" name="PMBS_q3" value="4"></td>
+                        <td><input type="radio" name="PMBS_q3" value="5"></td>
+                        <td><input type="radio" name="PMBS_q3" value="6"></td>
+                        <td><input type="radio" name="PMBS_q3" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>4. 世界是⾮常危險</td>
+                        <td><input type="radio" name="PMBS_q4" value="1"></td>
+                        <td><input type="radio" name="PMBS_q4" value="2"></td>
+                        <td><input type="radio" name="PMBS_q4" value="3"></td>
+                        <td><input type="radio" name="PMBS_q4" value="4"></td>
+                        <td><input type="radio" name="PMBS_q4" value="5"></td>
+                        <td><input type="radio" name="PMBS_q4" value="6"></td>
+                        <td><input type="radio" name="PMBS_q4" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>5. 我再也不信任任何⼈了</td>
+                        <td><input type="radio" name="PMBS_q5" value="1"></td>
+                        <td><input type="radio" name="PMBS_q5" value="2"></td>
+                        <td><input type="radio" name="PMBS_q5" value="3"></td>
+                        <td><input type="radio" name="PMBS_q5" value="4"></td>
+                        <td><input type="radio" name="PMBS_q5" value="5"></td>
+                        <td><input type="radio" name="PMBS_q5" value="6"></td>
+                        <td><input type="radio" name="PMBS_q5" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>6. 能與他⼈擁有親密和愛的感情，對我⽽⾔是可能的</td>
+                        <td><input type="radio" name="PMBS_q6" value="1"></td>
+                        <td><input type="radio" name="PMBS_q6" value="2"></td>
+                        <td><input type="radio" name="PMBS_q6" value="3"></td>
+                        <td><input type="radio" name="PMBS_q6" value="4"></td>
+                        <td><input type="radio" name="PMBS_q6" value="5"></td>
+                        <td><input type="radio" name="PMBS_q6" value="6"></td>
+                        <td><input type="radio" name="PMBS_q6" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>7. 我信任⾃⼰的判斷</td>
+                        <td><input type="radio" name="PMBS_q7" value="1"></td>
+                        <td><input type="radio" name="PMBS_q7" value="2"></td>
+                        <td><input type="radio" name="PMBS_q7" value="3"></td>
+                        <td><input type="radio" name="PMBS_q7" value="4"></td>
+                        <td><input type="radio" name="PMBS_q7" value="5"></td>
+                        <td><input type="radio" name="PMBS_q7" value="6"></td>
+                        <td><input type="radio" name="PMBS_q7" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>8. 我迴避他⼈，因為他們可能傷害我</td>
+                        <td><input type="radio" name="PMBS_q8" value="1"></td>
+                        <td><input type="radio" name="PMBS_q8" value="2"></td>
+                        <td><input type="radio" name="PMBS_q8" value="3"></td>
+                        <td><input type="radio" name="PMBS_q8" value="4"></td>
+                        <td><input type="radio" name="PMBS_q8" value="5"></td>
+                        <td><input type="radio" name="PMBS_q8" value="6"></td>
+                        <td><input type="radio" name="PMBS_q8" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>9. 我已經失去了對⾃⼰的尊重</td>
+                        <td><input type="radio" name="PMBS_q9" value="1"></td>
+                        <td><input type="radio" name="PMBS_q9" value="2"></td>
+                        <td><input type="radio" name="PMBS_q9" value="3"></td>
+                        <td><input type="radio" name="PMBS_q9" value="4"></td>
+                        <td><input type="radio" name="PMBS_q9" value="5"></td>
+                        <td><input type="radio" name="PMBS_q9" value="6"></td>
+                        <td><input type="radio" name="PMBS_q9" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>10. 我對⾃⼰能做出好的決定沒有信⼼</td>
+                        <td><input type="radio" name="PMBS_q10" value="1"></td>
+                        <td><input type="radio" name="PMBS_q10" value="2"></td>
+                        <td><input type="radio" name="PMBS_q10" value="3"></td>
+                        <td><input type="radio" name="PMBS_q10" value="4"></td>
+                        <td><input type="radio" name="PMBS_q10" value="5"></td>
+                        <td><input type="radio" name="PMBS_q10" value="6"></td>
+                        <td><input type="radio" name="PMBS_q10" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>11. 有些⼈是可以信任的</td>
+                        <td><input type="radio" name="PMBS_q11" value="1"></td>
+                        <td><input type="radio" name="PMBS_q11" value="2"></td>
+                        <td><input type="radio" name="PMBS_q11" value="3"></td>
+                        <td><input type="radio" name="PMBS_q11" value="4"></td>
+                        <td><input type="radio" name="PMBS_q11" value="5"></td>
+                        <td><input type="radio" name="PMBS_q11" value="6"></td>
+                        <td><input type="radio" name="PMBS_q11" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>12. 因為覺得無法保護⾃⼰，我已經失去⾃由的感受</td>
+                        <td><input type="radio" name="PMBS_q12" value="1"></td>
+                        <td><input type="radio" name="PMBS_q12" value="2"></td>
+                        <td><input type="radio" name="PMBS_q12" value="3"></td>
+                        <td><input type="radio" name="PMBS_q12" value="4"></td>
+                        <td><input type="radio" name="PMBS_q12" value="5"></td>
+                        <td><input type="radio" name="PMBS_q12" value="6"></td>
+                        <td><input type="radio" name="PMBS_q12" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>13. 我感覺我可以依賴他⼈</td>
+                        <td><input type="radio" name="PMBS_q13" value="1"></td>
+                        <td><input type="radio" name="PMBS_q13" value="2"></td>
+                        <td><input type="radio" name="PMBS_q13" value="3"></td>
+                        <td><input type="radio" name="PMBS_q13" value="4"></td>
+                        <td><input type="radio" name="PMBS_q13" value="5"></td>
+                        <td><input type="radio" name="PMBS_q13" value="6"></td>
+                        <td><input type="radio" name="PMBS_q13" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>14. 基本上⼤多數⼈是關⼼他⼈的</td>
+                        <td><input type="radio" name="PMBS_q14" value="1"></td>
+                        <td><input type="radio" name="PMBS_q14" value="2"></td>
+                        <td><input type="radio" name="PMBS_q14" value="3"></td>
+                        <td><input type="radio" name="PMBS_q14" value="4"></td>
+                        <td><input type="radio" name="PMBS_q14" value="5"></td>
+                        <td><input type="radio" name="PMBS_q14" value="6"></td>
+                        <td><input type="radio" name="PMBS_q14" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td>15. 當我⼼煩意亂時，我能很好地安慰⾃⼰</td>
+                        <td><input type="radio" name="PMBS_q15" value="1"></td>
+                        <td><input type="radio" name="PMBS_q15" value="2"></td>
+                        <td><input type="radio" name="PMBS_q15" value="3"></td>
+                        <td><input type="radio" name="PMBS_q15" value="4"></td>
+                        <td><input type="radio" name="PMBS_q15" value="5"></td>
+                        <td><input type="radio" name="PMBS_q15" value="6"></td>
+                        <td><input type="radio" name="PMBS_q15" value="7"></td>
+                    </tr>
+                    
+                </tbody>
+
+            </table>
+
+        <div class="button-group">
+            <button type="submit" class="submit-btn">提交</button>
+        </div>
+        </form>
+
+
+
+    </div>
+    <script src="_survey_logic.js"></script> <!-- 引用外部 JavaScript 文件 -->
+    <script src="niptIptPDS5.js"></script> <!-- 引用外部 JavaScript 文件 -->
+</body>
+</html>

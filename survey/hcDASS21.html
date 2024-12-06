@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>創傷生活事件核核</title>
+    <link rel="stylesheet" href="_survey.css"><!-- 引用外部 css 文件 -->
+</head>
+<body>
+    <div class="survey-container">
+        <div class="title">創傷生活事件核查表</div>
+        <div class="instruction">
+            請仔細閱讀每個句子，並根據題項回答在「過去一星期中」最符合你的描述。答案並無對錯之分。
+        </div>
+        <form id="hcForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="50%">描述</th>
+                        <th>⼀點都不適⽤</th>
+                        <th>偶爾適⽤/還可適⽤</th>
+                        <th>很適⽤/經常適⽤ </th>
+                        <th>⾮常適⽤/最適⽤</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 我覺得很難讓⾃⼰安靜下來</td>
+                        <td><input type="radio" name="DASS_q1" value="0"></td>
+                        <td><input type="radio" name="DASS_q1" value="1"></td>
+                        <td><input type="radio" name="DASS_q1" value="2"></td>
+                        <td><input type="radio" name="DASS_q1" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>2. 我感到⼝乾⾆燥</td>
+                        <td><input type="radio" name="DASS_q2" value="0"></td>
+                        <td><input type="radio" name="DASS_q2" value="1"></td>
+                        <td><input type="radio" name="DASS_q2" value="2"></td>
+                        <td><input type="radio" name="DASS_q2" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>3. 我好像不能再有任何愉快、舒暢的感覺</td>
+                        <td><input type="radio" name="DASS_q3" value="0"></td>
+                        <td><input type="radio" name="DASS_q3" value="1"></td>
+                        <td><input type="radio" name="DASS_q3" value="2"></td>
+                        <td><input type="radio" name="DASS_q3" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>4. 我感到呼吸困難（例如不是做運動時也感到氣促或透不過氣來）</td>
+                        <td><input type="radio" name="DASS_q4" value="0"></td>
+                        <td><input type="radio" name="DASS_q4" value="1"></td>
+                        <td><input type="radio" name="DASS_q4" value="2"></td>
+                        <td><input type="radio" name="DASS_q4" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>5. 我感到很難⾃動去開始⼯作</td>
+                        <td><input type="radio" name="DASS_q5" value="0"></td>
+                        <td><input type="radio" name="DASS_q5" value="1"></td>
+                        <td><input type="radio" name="DASS_q5" value="2"></td>
+                        <td><input type="radio" name="DASS_q5" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>6. 我對事情往往作出過敏反應</td>
+                        <td><input type="radio" name="DASS_q6" value="0"></td>
+                        <td><input type="radio" name="DASS_q6" value="1"></td>
+                        <td><input type="radio" name="DASS_q6" value="2"></td>
+                        <td><input type="radio" name="DASS_q6" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>7. 我感到顫抖（例如⼿震）</td>
+                        <td><input type="radio" name="DASS_q7" value="0"></td>
+                        <td><input type="radio" name="DASS_q7" value="1"></td>
+                        <td><input type="radio" name="DASS_q7" value="2"></td>
+                        <td><input type="radio" name="DASS_q7" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>8. 我覺得⾃⼰消耗很多精神</td>
+                        <td><input type="radio" name="DASS_q8" value="0"></td>
+                        <td><input type="radio" name="DASS_q8" value="1"></td>
+                        <td><input type="radio" name="DASS_q8" value="2"></td>
+                        <td><input type="radio" name="DASS_q8" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>9. 我憂慮⼀些令⾃⼰恐慌或出醜的場合</td>
+                        <td><input type="radio" name="DASS_q9" value="0"></td>
+                        <td><input type="radio" name="DASS_q9" value="1"></td>
+                        <td><input type="radio" name="DASS_q9" value="2"></td>
+                        <td><input type="radio" name="DASS_q9" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>10. 我覺得⾃⼰對將來沒有甚麼可盼望</td>
+                        <td><input type="radio" name="DASS_q10" value="0"></td>
+                        <td><input type="radio" name="DASS_q10" value="1"></td>
+                        <td><input type="radio" name="DASS_q10" value="2"></td>
+                        <td><input type="radio" name="DASS_q10" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>11. 我感到忐忑不安</td>
+                        <td><input type="radio" name="DASS_q11" value="0"></td>
+                        <td><input type="radio" name="DASS_q11" value="1"></td>
+                        <td><input type="radio" name="DASS_q11" value="2"></td>
+                        <td><input type="radio" name="DASS_q11" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>12. 我感到很難放鬆⾃⼰</td>
+                        <td><input type="radio" name="DASS_q12" value="0"></td>
+                        <td><input type="radio" name="DASS_q12" value="1"></td>
+                        <td><input type="radio" name="DASS_q12" value="2"></td>
+                        <td><input type="radio" name="DASS_q12" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>13. 我感到憂鬱沮喪</td>
+                        <td><input type="radio" name="DASS_q13" value="0"></td>
+                        <td><input type="radio" name="DASS_q13" value="1"></td>
+                        <td><input type="radio" name="DASS_q13" value="2"></td>
+                        <td><input type="radio" name="DASS_q13" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>14. 我無法容忍任何阻礙我繼續⼯作的事情</td>
+                        <td><input type="radio" name="DASS_q14" value="0"></td>
+                        <td><input type="radio" name="DASS_q14" value="1"></td>
+                        <td><input type="radio" name="DASS_q14" value="2"></td>
+                        <td><input type="radio" name="DASS_q14" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>15. 我感到快要恐慌了</td>
+                        <td><input type="radio" name="DASS_q15" value="0"></td>
+                        <td><input type="radio" name="DASS_q15" value="1"></td>
+                        <td><input type="radio" name="DASS_q15" value="2"></td>
+                        <td><input type="radio" name="DASS_q15" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>16. 我對任何事也不能熱衷</td>
+                        <td><input type="radio" name="DASS_q16" value="0"></td>
+                        <td><input type="radio" name="DASS_q16" value="1"></td>
+                        <td><input type="radio" name="DASS_q16" value="2"></td>
+                        <td><input type="radio" name="DASS_q16" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>17. 我覺得⾃⼰不怎麼配做⼈</td>
+                        <td><input type="radio" name="DASS_q17" value="0"></td>
+                        <td><input type="radio" name="DASS_q17" value="1"></td>
+                        <td><input type="radio" name="DASS_q17" value="2"></td>
+                        <td><input type="radio" name="DASS_q17" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>18. 我發覺⾃⼰很容易被觸怒</td>
+                        <td><input type="radio" name="DASS_q18" value="0"></td>
+                        <td><input type="radio" name="DASS_q18" value="1"></td>
+                        <td><input type="radio" name="DASS_q18" value="2"></td>
+                        <td><input type="radio" name="DASS_q18" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>19. 我察覺⾃⼰在沒有明顯的體⼒勞動時，也感到⼼律不正常</td>
+                        <td><input type="radio" name="DASS_q19" value="0"></td>
+                        <td><input type="radio" name="DASS_q19" value="1"></td>
+                        <td><input type="radio" name="DASS_q19" value="2"></td>
+                        <td><input type="radio" name="DASS_q19" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>20. 我無緣無故地感到害怕</td>
+                        <td><input type="radio" name="DASS_q20" value="0"></td>
+                        <td><input type="radio" name="DASS_q20" value="1"></td>
+                        <td><input type="radio" name="DASS_q20" value="2"></td>
+                        <td><input type="radio" name="DASS_q20" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>21. 我感到⽣命毫無意義</td>
+                        <td><input type="radio" name="DASS_q21" value="0"></td>
+                        <td><input type="radio" name="DASS_q21" value="1"></td>
+                        <td><input type="radio" name="DASS_q21" value="2"></td>
+                        <td><input type="radio" name="DASS_q21" value="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-group">
+                <button type="submit" class="submit-btn">提交</button>
+            </div>
+        </form>
+
+
+
+    </div>
+    <script src="_survey_logic.js"></script> <!-- 引用外部 JavaScript 文件 -->
+    <script src="hcDASS21.js"></script> <!-- 引用外部 JavaScript 文件 -->
+</body>
+</html>

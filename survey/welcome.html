@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>研究指引</title>
+  <link rel="stylesheet" href="_survey.css"><!-- 引用外部 css 文件 -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="header fade-out" id="header">
+      <p>首先請您回答以下問題</p>
+    </div>
+    <div class="dialog-box" id="dialog-box">
+      <h2>您好! 感謝您有興趣參與本研究。</h2>
+      <h3>接下來我們將簡要介紹研究的過程和時間安排</h3>
+      <h3>以便您完全理解後再決定是否參與。</h3>
+    </div>
+  </div>
+
+  <div class="navigation">
+
+    <div class="options fade-out" id="options">
+      <div class="option">
+          <input type="radio" id="option1" name="participation" value="no">
+          <label for="option1">否</label>
+      </div>
+
+      <div class="option">
+          <input type="radio" id="option2" name="participation" value="partial">
+          <label for="option2">是，但未完成完整研究</label>
+      </div>
+
+      <div class="option">
+          <input type="radio" id="option3" name="participation" value="yes">
+          <label for="option3">是</label>
+      </div>
+    </div>
+
+    <button id="left-btn" class="pink">下一步</button>
+    <button id="right-btn" class="hide green">右邊按鈕</button>
+    <div class="dotarray" id="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+  </div>
+  <script src="_survey_logic.js"></script> <!-- 引用外部 JavaScript 文件 -->
+  <script src="welcome.js"></script> <!-- 引用外部 JavaScript 文件 -->
+</body>
+</html>
