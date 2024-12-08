@@ -228,8 +228,9 @@ function wait_child_listener(){
     else if (event.data && event.data.action === "noData") { // 正常回傳但是沒有資料的子網頁 應該不存在這種東西
       jump_page(); // 每次處理後自動跳轉下一頁
     }
-    else if (event.data && event.data.action === "save_file_detect") { // 正常回傳但是沒有資料的子網頁 應該不存在這種東西
-      upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})
+    else if (event.data && event.data.action === "save_file_detect") {
+      setTimeout(()=>{upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})}, 1000) 
+      // 疑似是彈窗後block住main thread了 所以設一個timeout
     }
   });
 }
