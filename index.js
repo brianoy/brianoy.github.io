@@ -400,25 +400,12 @@ function detect_download_event(){
   function detectCtrlS(event) {
     if (event.ctrlKey && event.key === 's') {
         console.log('偵測到 Ctrl+S！');
-
-        try{
-          fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => {
-              data.timestamp = tag_time()
-              data.download = "TRUE"
-              upload_to_gs(3, data)
-            })
-        }
-        catch{
-          console.warn("get ip failed")
-          upload_to_gs(3, {"timestamp":tag_time(),"ip":"ip_fail","download":"TRUE"})
-        }
+        upload_save_file_detect()
     }
   }
+
+
   window.addEventListener('keydown', detectCtrlS);
-
-
   const iframe = document.getElementById('content-frame');
   iframe.addEventListener('load', () => {
       try {
@@ -430,6 +417,16 @@ function detect_download_event(){
       }
   })
 }
+// ===================================================no right click event=======================================================================
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();  // 阻止右鍵菜單顯示
+  alert('右鍵被禁用了！');  // 可選：顯示提示
+});
+const iframe = document.getElementById('content-frame');
+const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+iframeDoc.addEventListener('contextmenu', function(e) {
+e.preventDefault();  // 阻止右鍵菜單顯示
+});
 
 // ===================================================main()===========================================================================
 wait_child_listener()
