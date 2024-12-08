@@ -34,19 +34,3 @@ function upload_to_gs(upload_part, upload_data){ // json
       });
 }
 
-// detect ctrl S
-function upload_save_file_detect(){ // json
-  try{
-    fetch('https://api.ipify.org?format=json')
-      .then(res => res.json())
-      .then(data => {
-        data.timestamp = tag_time()
-        data.download = "TRUE"
-        upload_to_gs(3, data)
-      })
-  }
-  catch{
-    console.warn("get ip failed")
-    upload_to_gs(3, {"timestamp":tag_time(),"ip":"ip_fail","download":"TRUE"})
-  }
-}

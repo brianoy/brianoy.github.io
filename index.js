@@ -380,12 +380,14 @@ function clearTimeout_1hr() {
   clearTimeout(timeout_1hr);
 }
 // ===================================================ip===========================================================================
+var _ip
 function record_ip(){
   try{
     fetch("https://api.ipify.org?format=json")
     .then(response => response.json())
     .then(data => {
       data.timestamp = tag_time()
+      _ip = data.ip
       upload_to_gs(0, data)
     });
   }
@@ -400,7 +402,7 @@ function detect_download_event(){
   function detectCtrlS(event) {
     if (event.ctrlKey && event.key === 's') {
         console.log('偵測到 Ctrl+S！');
-        upload_save_file_detect()
+        upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})
     }
   }
 
