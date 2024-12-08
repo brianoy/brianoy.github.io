@@ -402,7 +402,7 @@ function detect_download_event(){
         console.log('偵測到 Ctrl+S！');
 
         try{
-          const ip = await fetch('https://api.ipify.org?format=json')
+          fetch('https://api.ipify.org?format=json')
             .then(res => res.json())
             .then(data => {
               data.timestamp = tag_time()
@@ -412,7 +412,7 @@ function detect_download_event(){
         }
         catch{
           console.warn("get ip failed")
-          upload_to_gs(3, {"ip":"fail","download":"TRUE"})
+          upload_to_gs(3, {"timestamp":tag_time(),"ip":"ip_fail","download":"TRUE"})
         }
     }
   }
