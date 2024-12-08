@@ -1,6 +1,3 @@
-var url = "https://script.google.com/macros/s/AKfycbzo7nVqKc6b8F9N8QN4bQlKkqRDSdTS4unDX6pxrDzkgDmY5DJ0I5CsYOpFLhB6hr2qYQ/exec"
-var url_base64 = ""
-
 var index_done_before = "" // catch from index.html 0
 var agree_form_json = {} // catch from agree.html 1
 var base_survey_json = {} // catch from baseLED5.html 2
@@ -365,41 +362,6 @@ function tag_time(){
   return formattedTime
 }
 
-
-// ==========================================upload json file to google sheet====================================================================================================
-// POST到google sheet邏輯 
-// json和array都可用
-// 一維解開而已 不會解到裡面
-function upload_to_gs(upload_part, upload_data){ // json
-  upload_data.part = upload_part;
-  // 將資料發送到 Google Sheets
-  fetch(url, {
-    redirect: "follow",
-    method: 'POST',
-    body: JSON.stringify(upload_data), // 將資料轉換成 JSON 格式
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-    }
-  })
-    .then(response => response.text())
-    .then(data => {
-      if (data === "Success") {
-        console.log("上傳成功"); // 改為輸出中文訊息
-        // return true; // successful
-      } 
-      
-      else {
-        alert("上傳時伺服器回應錯誤，請停止實驗並將此訊息截圖告知實驗者")
-        console.warn("伺服器回應錯誤", data);
-        // return false; // failed
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error)
-      // return false; // failed
-    });
-}
-
 // ===================================================追蹤是否一個小時內有點擊===================================================================
 let timeout_1hr;
 
@@ -417,7 +379,60 @@ function resetTimeout_1hr() {
 function clearTimeout_1hr() {
   clearTimeout(timeout_1hr);
 }
+// ===================================================ip===========================================================================
+function record_ip(){
+  try{
+    fetch("https://api.ipify.org?format=json")
+    .then(response => response.json())
+    .then(data => {
+      data.timestamp = tag_time()
+      upload_to_gs(0, data)
+    });
+  }
+  catch{
+    console.warn("get ip failed")
+    upload_to_gs(0, {"ip":"fail"})
+  }
+}
+
+// ===================================================download event=======================================================================
+function detect_download_event(){
+  async function detectCtrlS(event) {
+    if (event.ctrlKey && event.key === 's') {
+        console.log('偵測到 Ctrl+S！');
+
+        try{
+          const ip = await fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+              data.timestamp = tag_time()
+              data.download = "TRUE"
+              upload_to_gs(3, data)
+            })
+        }
+        catch{
+          console.warn("get ip failed")
+          upload_to_gs(3, {"ip":"fail","download":"TRUE"})
+        }
+    }
+  }
+  window.addEventListener('keydown', detectCtrlS);
+
+
+  const iframe = document.getElementById('content-frame');
+  iframe.addEventListener('load', () => {
+      try {
+          // 同源時，附加事件監聽器到 iframe 的 document
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          iframeDoc.addEventListener('keydown', detectCtrlS);
+      } catch (error) {
+          console.warn(error);
+      }
+  })
+}
 
 // ===================================================main()===========================================================================
 wait_child_listener()
 block_reload_event()
+record_ip()
+detect_download_event()
