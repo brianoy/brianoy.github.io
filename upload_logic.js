@@ -34,3 +34,27 @@ function upload_to_gs(upload_part, upload_data){ // json
       });
 }
 
+// ==========================================download============================================================
+function detect_download_event(){
+  function detectCtrlS(event) {
+    if (event.ctrlKey && event.key === 's') {
+        console.log('偵測到 Ctrl+S！');
+        window.parent.postMessage(
+          {
+              action: "save_file_detect",
+              payload: ""
+          },
+          '*'
+      );
+    }
+  }
+  window.addEventListener('keydown', detectCtrlS);
+}
+detect_download_event()
+// ===================================================no right click event=======================================================================
+function detect_right_click_event(){
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();  // 阻止右鍵菜單顯示
+  })
+}
+detect_right_click_event()

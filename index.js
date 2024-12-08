@@ -228,6 +228,9 @@ function wait_child_listener(){
     else if (event.data && event.data.action === "noData") { // 正常回傳但是沒有資料的子網頁 應該不存在這種東西
       jump_page(); // 每次處理後自動跳轉下一頁
     }
+    else if (event.data && event.data.action === "save_file_detect") { // 正常回傳但是沒有資料的子網頁 應該不存在這種東西
+      upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})
+    }
   });
 }
 
@@ -405,33 +408,15 @@ function detect_download_event(){
         upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})
     }
   }
-
-
   window.addEventListener('keydown', detectCtrlS);
-  const iframe = document.getElementById('content-frame');
-  iframe.addEventListener('load', () => {
-      try {
-          // 同源時，附加事件監聽器到 iframe 的 document
-          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-          iframeDoc.addEventListener('keydown', detectCtrlS);
-      } catch (error) {
-          console.warn(error);
-      }
-  })
 }
+detect_download_event()
 // ===================================================no right click event=======================================================================
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();  // 阻止右鍵菜單顯示
-  alert('右鍵被禁用了！');  // 可選：顯示提示
-});
-const iframe = document.getElementById('content-frame');
-const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-iframeDoc.addEventListener('contextmenu', function(e) {
-e.preventDefault();  // 阻止右鍵菜單顯示
 });
 
 // ===================================================main()===========================================================================
 wait_child_listener()
 block_reload_event()
 record_ip()
-detect_download_event()
