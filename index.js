@@ -397,7 +397,7 @@ function record_ip(){
 
 // ===================================================download event=======================================================================
 function detect_download_event(){
-  async function detectCtrlS(event) {
+  function detectCtrlS(event) {
     if (event.ctrlKey && event.key === 's') {
         console.log('偵測到 Ctrl+S！');
 
