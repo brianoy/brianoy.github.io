@@ -399,23 +399,6 @@ function record_ip(){
     upload_to_gs(0, {"ip":"fail"})
   }
 }
-
-// ===================================================download event=======================================================================
-function detect_download_event(){
-  function detectCtrlS(event) {
-    if (event.ctrlKey && event.key === 's') {
-        console.log('偵測到 Ctrl+S！');
-        upload_to_gs(3, {"ip":_ip, "timestamp":tag_time(), "download":"TRUE"})
-    }
-  }
-  window.addEventListener('keydown', detectCtrlS);
-}
-detect_download_event()
-// ===================================================no right click event=======================================================================
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();  // 阻止右鍵菜單顯示
-});
-
 // ===================================================main()===========================================================================
 wait_child_listener()
 block_reload_event()
